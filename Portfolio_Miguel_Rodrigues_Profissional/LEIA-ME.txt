@@ -1,0 +1,9 @@
+PORTFÓLIO — MIGUEL RODRIGUES
+
+Como abrir:
+1. Extraia todos os arquivos desta pasta.
+2. Abra index.html no navegador.
+3. Mantenha a pasta projetos junto de index.html para que as imagens e o projeto Pizzaria Bella Massa funcionem.
+
+LinkedIn:
+No index.html, procure pelo link "Miguel Rodrigues | LinkedIn" e substitua https://www.linkedin.com/ pelo endereço exato do seu perfil.
