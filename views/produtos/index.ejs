@@ -1,0 +1,22 @@
+<% title = "Produtos" %>
+<div class="container my-5">
+    <h2 class="titulo-produto mb-4">Nossos Produtos</h2>
+    <% if (!produtos || produtos.length === 0) { %>
+        <div class="text-center py-5"><p class="text-secondary">Nenhum produto cadastrado no momento.</p></div>
+    <% } else { %>
+        <div class="row g-4">
+            <% produtos.forEach(function(produto) { %>
+                <div class="col-6 col-md-3">
+                    <div class="card-produto h-100">
+                        <div class="text-center mb-2">
+                            <img src="<%= produto.imagem || 'https://via.placeholder.com/300x300?text=Sem+imagem' %>" alt="<%= produto.nome %>">
+                        </div>
+                        <p class="card-nome"><%= produto.nome %></p>
+                        <p class="card-preco">R$ <%= Number(produto.preco).toFixed(2).replace('.', ',') %></p>
+                        <a href="/produto/<%= produto.uid %>" class="btn login-btn w-100 mt-2">Comprar</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+</div>

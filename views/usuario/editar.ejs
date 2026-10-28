@@ -1,0 +1,45 @@
+<% title = "Editar Usuário" %>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-8 col-lg-5">
+
+            <div class="card login-card shadow-sm">
+                <div class="card-body p-4 p-md-5">
+
+                    <h2 class="login-titulo text-center mb-4">EDITAR USUÁRIO</h2>
+
+                    <form action="/usuarios/<%= usuario.id %>/atualizar" method="post">
+
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome completo</label>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                value="<%= usuario.nome %>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                value="<%= usuario.email %>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefone" name="telefone"
+                                value="<%= usuario.telefone || '' %>">
+                        </div>
+
+                        <button type="submit" class="btn login-btn w-100 mt-2">Salvar alterações</button>
+
+                        <p class="signup text-center mb-0 mt-3">
+                            <a href="/usuarios">Cancelar</a>
+                        </p>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

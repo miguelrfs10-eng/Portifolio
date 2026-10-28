@@ -1,0 +1,2160 @@
+/* ==========================================================================
+
+   TEMA LUXURY DARK (Estilo E-commerce de Grife)
+
+   ========================================================================== */
+
+body {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+
+  background-color: #0a0a0c;
+  /* Preto profundo, fosco e elegante */
+
+  color: #e2e2e6;
+  /* Branco acinzentado, leitura extremamente confortável */
+
+  letter-spacing: -0.01em;
+
+}
+
+/* Links e Botões Globais */
+
+a {
+
+  text-decoration: none;
+
+  color: #c5a880;
+  /* Tom de Champanhe Fosco / Ouro Velho */
+
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+a:hover {
+
+  color: #fff;
+
+}
+
+/* ==========================================================================
+
+   CARROSSEL PRINCIPAL (Premium Wide View)
+
+   ========================================================================== */
+
+#carouselExampleInterval {
+
+  background-color: #050507;
+
+  border-bottom: 1px solid #1a1a1f;
+
+}
+
+.carousel-img {
+
+  height: 520px;
+  /* Mais alto, imponente */
+
+  object-fit: contain;
+
+  width: auto;
+
+  margin: 0 auto;
+
+  filter: brightness(0.95);
+  /* Remove o estouro de branco de imagens amadoras */
+
+}
+
+@media (max-width: 768px) {
+
+  .carousel-img {
+
+    height: 260px;
+
+  }
+
+}
+
+/* Customização sutil dos botões do carrossel principal */
+
+/* ==========================================================================
+
+   BOTÕES DO CARROSSEL PRINCIPAL - CORRIGIDO (Sem Deformação)
+
+   ========================================================================== */
+
+.carousel-control-prev,
+
+.carousel-control-next {
+
+  width: 48px;
+  /* Controla o tamanho exato do círculo */
+
+  height: 48px;
+
+  background-color: rgba(255, 255, 255, 0.05) !important;
+
+  backdrop-filter: blur(8px);
+  /* Efeito de vidro jateado chique */
+
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+  border-radius: 50%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+  /* Centraliza verticalmente na imagem */
+
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  opacity: 0.8;
+  /* Fica sutil por padrão */
+
+}
+
+/* Ajuste de margem lateral para não colarem na borda da tela */
+
+.carousel-control-prev {
+  left: 20px;
+}
+
+.carousel-control-next {
+  right: 20px;
+}
+
+/* Comportamento de Hover Chique */
+
+.carousel-control-prev:hover,
+
+.carousel-control-next:hover {
+
+  background-color: rgba(255, 255, 255, 0.12) !important;
+
+  border-color: #c5a880 !important;
+  /* Brilho champanhe sutil na borda */
+
+  transform: translateY(-50%) scale(1.05);
+  /* Leve pulsação ao passar o mouse */
+
+  opacity: 1;
+
+}
+
+/* Preserva o ícone interno da seta intacto e centralizado */
+
+.carousel-control-prev-icon,
+
+.carousel-control-next-icon {
+
+  width: 18px !important;
+
+  height: 18px !important;
+
+  background-size: 100% 100%;
+
+}
+
+/* ==========================================================================
+
+   CARDS DE PRODUTO GERAIS (Minimalistas)
+
+   ========================================================================== */
+
+.card {
+
+  background-color: #111114 !important;
+
+  --bs-card-bg: #111114 !important;
+
+  color: #fff !important;
+
+  border: 1px solid #1e1e24 !important;
+  /* Linha cirúrgica, bem discreta */
+
+  border-radius: 14px !important;
+
+  padding: 8px;
+
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+}
+
+.card:hover {
+
+  transform: translateY(-6px);
+
+  border-color: #c5a880 !important;
+
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.4) !important;
+
+}
+
+/* Botão comprar estilo boutique */
+
+.card .btn-primary {
+
+  background-color: transparent !important;
+
+  border: 1px solid #c5a880 !important;
+
+  color: #c5a880 !important;
+
+  text-transform: uppercase;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  border-radius: 6px;
+
+  transition: all 0.3s !important;
+
+}
+
+.card .btn-primary:hover {
+
+  background-color: #c5a880 !important;
+
+  color: #0a0a0c !important;
+
+  box-shadow: 0 4px 12px rgba(197, 168, 128, 0.2);
+
+}
+
+/* ==========================================================================
+
+   CARDS DE PRODUTO ESPECÍFICOS (Vitrines Técnicas)
+
+   ========================================================================== */
+
+.card-produto {
+
+  background: #111114 !important;
+
+  border: 1px solid #1e1e24 !important;
+
+  border-radius: 14px !important;
+
+  padding: 20px !important;
+
+  text-align: center !important;
+
+  height: auto !important;
+  min-height: 340px !important;
+  /* Mais espaçoso */
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  box-sizing: border-box !important;
+
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+}
+
+.card-produto:hover {
+
+  border-color: #c5a880 !important;
+
+  background: #16161a !important;
+
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5) !important;
+
+}
+
+.card-produto img {
+
+  width: 90% !important;
+
+  height: 140px !important;
+
+  object-fit: contain !important;
+
+  mix-blend-mode: lighten;
+  /* Mescla imagens de fundo branco com o fundo escuro de forma elegante */
+
+  transition: transform 0.4s ease;
+
+}
+
+.card-produto:hover img {
+
+  transform: scale(1.04);
+
+}
+
+.card-produto .card-nome {
+
+  color: #e2e2e6 !important;
+
+  font-size: 14px !important;
+
+  font-weight: 400 !important;
+
+  margin: 12px 0 4px !important;
+
+  letter-spacing: -0.01em;
+
+}
+
+.card-produto .card-preco {
+
+  color: #c5a880 !important;
+  /* Champanhe */
+
+  font-weight: 600 !important;
+
+  font-size: 16px !important;
+
+  letter-spacing: 0.02em;
+
+}
+
+/* Controles de Carrosséis de Produtos Internos */
+
+#carrosselProdutos .carousel-control-prev,
+
+#carrosselProdutos .carousel-control-next {
+
+  width: 36px !important;
+
+  height: 36px !important;
+
+  background-color: #1e1e24 !important;
+
+  border: 1px solid #2c2c35 !important;
+
+  border-radius: 50% !important;
+
+  top: 50% !important;
+
+  transform: translateY(-50%) !important;
+
+  opacity: 1 !important;
+
+  transition: all 0.3s;
+
+}
+
+#carrosselProdutos .carousel-control-prev:hover,
+
+#carrosselProdutos .carousel-control-next:hover {
+
+  background-color: #c5a880 !important;
+
+  border-color: #c5a880 !important;
+
+}
+
+#carrosselProdutos .carousel-control-prev-icon,
+
+#carrosselProdutos .carousel-control-next-icon {
+
+  filter: brightness(0) invert(1) !important;
+  /* Ajusta seta para branco */
+
+  width: 14px !important;
+
+  height: 14px !important;
+
+}
+
+#carrosselProdutos .carousel-control-prev:hover .carousel-control-prev-icon,
+
+#carrosselProdutos .carousel-control-next:hover .carousel-control-next-icon {
+
+  filter: brightness(0) !important;
+  /* Seta fica preta no hover dourado */
+
+}
+
+.privacidade2 {
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #000;
+}
+
+.privacidade2 h2 {
+  color: #FFD700;
+}
+
+.privacidade2 p {
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+
+   SELETORES DE QUANTIDADE (Clean Design)
+
+   ========================================================================== */
+
+.quantidade button {
+
+  width: 30px;
+
+  height: 30px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  background: #1e1e24;
+
+  color: #e2e2e6;
+
+  border: none;
+
+  border-radius: 6px;
+
+  transition: all 0.2s;
+
+}
+
+.quantidade button:hover {
+
+  background: #c5a880;
+
+  color: #0a0a0c;
+
+}
+
+.quantidade input {
+
+  width: 45px;
+
+  height: 30px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  background: #0a0a0c;
+
+  border: 1px solid #1e1e24;
+
+  color: #fff;
+
+  border-radius: 6px;
+
+  margin: 0 4px;
+
+}
+
+
+/* ==========================================================================
+
+   RODAPÉ CORPORATIVO (Footer)
+
+   ========================================================================== */
+
+.footer-custom {
+  background: #050507;
+  color: #8e8e93;
+  border-top: 1px solid #1a1a1f;
+  padding: 60px 0 30px;
+  margin-top: 80px;
+}
+
+.footer-col {
+  margin-bottom: 16px;
+}
+
+.footer-col h3 {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  /* Estilo minimalista espaçado */
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* Pequeno traço dourado sob os títulos das colunas, reforça a hierarquia */
+.footer-col h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 28px;
+  height: 2px;
+  background: #c5a880;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+/* Ajuste aqui: adicionado display inline-block e transição para o movimento */
+.footer-col ul li a {
+  color: #8e8e93;
+  font-size: 14px;
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Ajuste aqui: trocado text-indent por transform para uma animação profissional */
+.footer-col ul li a:hover {
+  color: #c5a880;
+  transform: translateX(4px);
+  /* Desliza suavemente 4 pixels para a direita */
+}
+
+.footer-bottom {
+  color: #515156;
+  font-size: 12px;
+  border-top: 1px solid #1a1a1f;
+  padding-top: 30px;
+  margin-top: 40px;
+  letter-spacing: 0.02em;
+}
+
+/* Ícones sociais: agora em fileira com espaçamento e um "botão" circular sutil no hover */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #1e1e24;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-social a:hover {
+  border-color: #c5a880;
+  background: rgba(197, 168, 128, 0.08);
+  transform: translateY(-3px);
+}
+
+.footer-social img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+
+.footer-social a:hover img {
+  opacity: 1;
+}
+
+/* Mobile: colunas empilhadas ficam centralizadas, ícones sociais também */
+@media (max-width: 767px) {
+  .footer-col {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .footer-col h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   BOTÃO DE SUPORTE
+   ========================================================================== */
+
+.suporte-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(197, 168, 128, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 168, 128, 0.5);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c5a880;
+  text-decoration: none;
+  font-size: 25px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 9999;
+}
+
+.suporte-button:hover {
+  transform: scale(1.05) translateY(-2px);
+  background: #c5a880;
+  color: #0a0a0c;
+  box-shadow: 0 12px 24px rgba(197, 168, 128, 0.3);
+}
+
+/* ==========================================================================
+   AJUSTES DE RESPONSIVIDADE (mobile) — não afeta desktop
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* Logo da navbar: altura fixa de 80px ficava grande demais no celular */
+  .navbar-brand img {
+    height: 48px;
+  }
+
+  /* Cards de produto: altura fixa de 310px cortava nomes de produto longos */
+  .card-produto {
+    height: auto !important;
+    min-height: 260px !important;
+  }
+
+}
+
+/* ==========================================================================
+   PÁGINA DE PRODUTO (produtos/index.ejs) — estiliza classes que ainda
+   não tinham CSS, seguindo a mesma paleta Luxury Dark do resto do site
+   ========================================================================== */
+
+.produto-bootstrap-img {
+  max-width: 100%;
+  border-radius: 14px;
+  border: 1px solid #1e1e24;
+  filter: brightness(0.97);
+}
+
+.titulo-produto {
+  color: #e2e2e6;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.preco-produto {
+  color: #c5a880;
+  /* mesmo dourado usado no resto do site */
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin: 12px 0;
+}
+
+/* Botões "Comprar" / "Adicionar ao carrinho" já usam .btn-warning do Bootstrap;
+   deixa o hover consistente com o resto do site */
+.d-flex.flex-wrap.gap-2 .btn-warning {
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.d-flex.flex-wrap.gap-2 .btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(197, 168, 128, 0.25);
+}
+
+@media (max-width: 767px) {
+  .titulo-produto {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .preco-produto {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .d-flex.flex-wrap.gap-2 {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR — refinamentos de responsividade e consistência visual
+   ========================================================================== */
+
+/* Dropdown "Categorias": estava com o branco padrão do Bootstrap,
+   destoando do tema escuro. Agora segue a mesma paleta do site. */
+.navbar .dropdown-menu {
+  background-color: #111114;
+  border: 1px solid #1e1e24;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.navbar .dropdown-item {
+  color: #e2e2e6;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background-color: rgba(197, 168, 128, 0.12);
+  color: #c5a880;
+}
+
+.navbar .dropdown-divider {
+  border-color: #1e1e24;
+}
+
+/* Botão do hambúrguer: destaque sutil dourado no foco/hover, mais coerente
+   com o resto dos elementos interativos do site */
+.navbar-toggler {
+  border-color: #1e1e24;
+  transition: border-color 0.3s;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+  border-color: #c5a880;
+  box-shadow: none;
+}
+
+/* Menu colapsado no mobile: mais espaço entre os itens, e a barra de busca
+   ganha uma margem melhor quando empilha embaixo do menu */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    padding-top: 16px;
+  }
+
+  .navbar-nav .nav-link,
+  .navbar-nav .dropdown-toggle {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .navbar form[role="search"] {
+    margin: 12px 0;
+    width: 100%;
+  }
+
+  .navbar-nav.gap-2 {
+    margin-top: 8px;
+  }
+}
+
+/* ==========================================================================
+   PÁGINA DE LOGIN — mesmo layout (mesmos campos/botão/link), agora seguindo
+   a estética Luxury Dark do resto do site
+   ========================================================================== */
+
+.login-card {
+  background-color: #111114 !important;
+  border: 1px solid #1e1e24 !important;
+  border-radius: 14px !important;
+}
+
+.login-titulo {
+  color: #c5a880;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.login-card .form-label {
+  color: #8e8e93;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.login-card .form-control {
+  background-color: #0a0a0c;
+  border: 1px solid #1e1e24;
+  color: #e2e2e6;
+}
+
+.login-card .form-control:focus {
+  background-color: #0a0a0c;
+  border-color: #c5a880;
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(197, 168, 128, 0.15);
+}
+
+.login-btn {
+  background-color: transparent;
+  border: 1px solid #c5a880;
+  color: #c5a880;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.login-btn:hover {
+  background-color: #c5a880;
+  color: #0a0a0c;
+}
+
+.login-card .social-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.login-card .social-message .line {
+  flex: 1;
+  height: 1px;
+  background-color: #1e1e24;
+}
+
+.login-card .social-message .message {
+  color: #515156;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.login-card .signup {
+  color: #8e8e93;
+  font-size: 14px;
+}
+
+.login-card .signup a {
+  color: #c5a880;
+}
+
+.login-card .signup a:hover {
+  color: #fff;
+}
+
+/* ==========================================================================
+   CARRINHO — layout profissional em linhas + resumo lateral, estilo ML
+   ========================================================================== */
+
+.carrinho-vazio-card {
+  background-color: #111114 !important;
+  border: 1px solid #1e1e24 !important;
+  border-radius: 14px !important;
+  color: #e2e2e6;
+}
+
+/* Lista de itens */
+.carrinho-lista {
+  background-color: #111114;
+  border: 1px solid #1e1e24;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.carrinho-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid #1e1e24;
+  transition: background-color 0.3s;
+}
+
+.carrinho-item:last-child {
+  border-bottom: none;
+}
+
+.carrinho-item:hover {
+  background-color: #16161a;
+}
+
+.carrinho-item-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.carrinho-item-nome {
+  color: #e2e2e6;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.carrinho-item-cliente,
+.carrinho-item-qtd {
+  color: #8e8e93;
+  font-size: 13px;
+}
+
+.carrinho-item-precos {
+  flex: 0 0 auto;
+  min-width: 110px;
+}
+
+.carrinho-item-unitario {
+  color: #8e8e93;
+  font-size: 12px;
+}
+
+.carrinho-item-total {
+  color: #c5a880;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.carrinho-item-acoes {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 6px;
+}
+
+/* Resumo lateral */
+.carrinho-resumo {
+  background-color: #111114;
+  border: 1px solid #1e1e24;
+  border-radius: 14px;
+  padding: 24px;
+  position: sticky;
+  top: 20px;
+}
+
+.carrinho-resumo-titulo {
+  color: #e2e2e6;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.carrinho-resumo-linha {
+  display: flex;
+  justify-content: space-between;
+  color: #8e8e93;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.carrinho-frete-gratis {
+  color: #7fbf7f;
+  font-weight: 600;
+}
+
+.carrinho-resumo-divisor {
+  border-color: #1e1e24;
+  margin: 16px 0;
+}
+
+.carrinho-resumo-total {
+  color: #e2e2e6;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.carrinho-resumo-total span:last-child {
+  color: #c5a880;
+}
+
+.carrinho-total-valor {
+  color: #c5a880;
+  font-weight: 600;
+}
+
+.carrinho-btn-ver,
+.carrinho-btn-editar,
+.carrinho-btn-remover {
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  border: 1px solid;
+  padding: 4px 10px;
+}
+
+.carrinho-btn-ver {
+  background: transparent;
+  border-color: #c5a880;
+  color: #c5a880;
+}
+
+.carrinho-btn-ver:hover {
+  background: #c5a880;
+  color: #0a0a0c;
+}
+
+.carrinho-btn-editar {
+  background: transparent;
+  border-color: #8e8e93;
+  color: #e2e2e6;
+}
+
+.carrinho-btn-editar:hover {
+  background: #8e8e93;
+  color: #0a0a0c;
+}
+
+.carrinho-btn-remover {
+  background: transparent;
+  border-color: #b04a4a;
+  color: #e08a8a;
+}
+
+.carrinho-btn-remover:hover {
+  background: #b04a4a;
+  color: #fff;
+}
+
+/* Mobile: item empilha, ações vão pra baixo */
+@media (max-width: 767px) {
+  .carrinho-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .carrinho-item-precos {
+    text-align: left !important;
+    min-width: 0;
+  }
+
+  .carrinho-item-acoes {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .carrinho-resumo {
+    position: static;
+  }
+}
+
+
+/* ==========================================================================
+   HIERARQUIA TIPOGRÁFICA — escala consistente entre títulos, subtítulos
+   e texto de apoio, em todas as páginas
+   ========================================================================== */
+
+/* Títulos principais de página (ex: "Carrinho de Compras", "Login") */
+h1 {
+  color: #e2e2e6;
+  font-weight: 300;
+  font-size: 2.1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Títulos de seção (ex: "Produtos similares") */
+h2 {
+  color: #e2e2e6;
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: -0.015em;
+}
+
+/* Subtítulos de bloco/card (ex: "Quem somos?" na política) */
+h3 {
+  color: #c5a880;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+h4 {
+  color: #e2e2e6;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* Títulos de card (nome do produto, nome do item do carrinho, etc.) */
+h5,
+.card-title {
+  color: #e2e2e6 !important;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+/* Texto de apoio — sempre mais discreto que o título ao lado */
+p,
+.card-text {
+  color: #a3a3aa;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* Rótulos pequenos, tipo "USUÁRIO", "SENHA" nos formulários —
+   mesmo padrão dos títulos de seção, só um pouco menor */
+label,
+.form-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Ajuste de escala pra telas pequenas, títulos não ficam grandes demais */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   TRATAMENTO UNIFICADO DE IMAGENS DE PRODUTO — aplica o mesmo enquadramento
+   visual em qualquer imagem de produto, independente da fonte/fundo original
+   ========================================================================== */
+
+.card-body img.img-fluid.rounded,
+.card2 img,
+.card .img,
+.produto-bootstrap-img {
+  background-color: #16161a;
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  mix-blend-mode: lighten;
+  filter: brightness(0.96) contrast(1.02);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover .card-body img.img-fluid.rounded,
+.card2:hover img,
+.card:hover .img,
+.produto-bootstrap-img:hover {
+  transform: scale(1.03);
+  border-color: rgba(197, 168, 128, 0.6);
+}
+
+/* Padroniza a altura das fotos no carrossel "produtos similares" e no
+   card de manutenção, que hoje variam de tamanho conforme a imagem original */
+.card2 img,
+.card .img {
+  height: 140px;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* ==========================================================================
+   PÁGINA DE PRODUTO — botões e card de detalhes no tema Luxury Dark
+   (substituindo o btn-warning e bg-dark/border-warning padrão do Bootstrap)
+   ========================================================================== */
+
+.produto-detalhes-card {
+  background-color: #111114 !important;
+  border: 1px solid #1e1e24 !important;
+  color: #e2e2e6;
+}
+
+.produto-detalhes-card ul {
+  padding-left: 18px;
+}
+
+.produto-detalhes-card li {
+  color: #a3a3aa;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+/* Garante que as imagens do carrossel "produtos similares" (.card-produto img)
+   recebam a mesma borda dourada sutil das demais imagens de produto do site */
+.card-produto img {
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-produto:hover img {
+  border-color: rgba(197, 168, 128, 0.6);
+}
+
+/* ==========================================================================
+   CARROSSEL "PRODUTOS SIMILARES" — enquadramento rígido e uniforme,
+   garante que toda imagem (de qualquer fonte/proporção) fique no mesmo
+   tamanho de caixa, centralizada, sem esticar ou deformar
+   ========================================================================== */
+
+.card-produto {
+  overflow: hidden;
+}
+
+.card-produto img {
+  width: 100% !important;
+  height: 140px !important;
+  max-width: 100%;
+  object-fit: contain !important;
+  object-position: center center;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: 6px;
+  background-color: #16161a;
+  padding: 6px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-produto:hover img {
+  transform: scale(1.03);
+  border-color: rgba(197, 168, 128, 0.6);
+}
+
+/* ==========================================================================
+   CARROSSEL "PRODUTOS SIMILARES" — enquadramento uniforme das imagens +
+   botão "Ver produto" no hover + indicadores dourados
+   ========================================================================== */
+
+.card-produto {
+  overflow: hidden;
+}
+
+.card-produto img {
+  width: 100% !important;
+  height: 140px !important;
+  max-width: 100%;
+  object-fit: contain !important;
+  object-position: center center;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: 6px;
+  background-color: #16161a;
+  padding: 6px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-produto:hover img {
+  transform: scale(1.03);
+  border-color: rgba(197, 168, 128, 0.6);
+}
+
+.card-produto-btn {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 100%;
+  font-size: 11px;
+  padding: 6px 10px;
+}
+
+.card-produto:hover .card-produto-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#carrosselProdutos .carousel-indicators [data-bs-target] {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  opacity: 1;
+}
+
+#carrosselProdutos .carousel-indicators .active {
+  background-color: #c5a880;
+  width: 18px;
+  border-radius: 3px;
+}
+
+/* ==========================================================================
+   CHECKOUT — página de finalização de compra
+   ========================================================================== */
+
+.checkout-card {
+  background-color: #111114;
+  border: 1px solid #1e1e24;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.checkout-card-titulo {
+  color: #e2e2e6;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.checkout-card .form-label {
+  color: #8e8e93;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.checkout-card .form-control,
+.checkout-card select.form-control {
+  background-color: #0a0a0c;
+  border: 1px solid #1e1e24;
+  color: #e2e2e6;
+}
+
+.checkout-card .form-control:focus {
+  background-color: #0a0a0c;
+  border-color: #c5a880;
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(197, 168, 128, 0.15);
+}
+
+/* Abas de forma de pagamento */
+.checkout-tabs {
+  border-bottom: 1px solid #1e1e24;
+}
+
+.checkout-tabs .nav-link {
+  color: #8e8e93;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 16px;
+  border-bottom: 2px solid transparent;
+}
+
+.checkout-tabs .nav-link:hover {
+  color: #e2e2e6;
+  border-color: transparent;
+}
+
+.checkout-tabs .nav-link.active {
+  color: #c5a880;
+  background: transparent;
+  border-bottom: 2px solid #c5a880;
+}
+
+/* Placeholder do QR Code do Pix */
+.checkout-qr-placeholder {
+  width: 160px;
+  height: 160px;
+  background-color: #16161a;
+  border: 1px solid #1e1e24;
+  border-radius: 10px;
+}
+
+.checkout-voltar {
+  color: #8e8e93;
+  font-size: 13px;
+}
+
+.checkout-voltar:hover {
+  color: #c5a880;
+}
+
+/* ==========================================================================
+   POLÍTICA DE PRIVACIDADE — tema Luxury Dark (substitui o bg-light/text-dark
+   do Bootstrap padrão que destoava do resto do site)
+   ========================================================================== */
+
+.politica-titulo {
+  color: #e2e2e6;
+  font-weight: 300;
+}
+
+.politica-atualizacao {
+  color: #8e8e93;
+  font-size: 13px;
+}
+
+.politica-divisor {
+  border-color: #1e1e24;
+}
+
+/* Sumário */
+.politica-sumario {
+  background-color: #111114;
+  border: 1px solid #1e1e24;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.politica-sumario-titulo {
+  color: #c5a880;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.politica-sumario-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 24px;
+}
+
+.politica-sumario-lista li {
+  margin-bottom: 8px;
+  break-inside: avoid;
+}
+
+.politica-sumario-lista a {
+  color: #a3a3aa;
+  font-size: 13px;
+}
+
+.politica-sumario-lista a:hover {
+  color: #c5a880;
+}
+
+/* Seções */
+.politica-secao {
+  display: flex;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid #1e1e24;
+  scroll-margin-top: 20px;
+}
+
+.politica-secao:last-child {
+  border-bottom: none;
+}
+
+.politica-numero {
+  flex: 0 0 auto;
+  font-size: 2.2rem;
+  font-weight: 200;
+  color: rgba(197, 168, 128, 0.35);
+  line-height: 1;
+  min-width: 56px;
+}
+
+.politica-conteudo {
+  flex: 1 1 auto;
+}
+
+.politica-secao-titulo {
+  color: #e2e2e6;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.politica-texto {
+  color: #a3a3aa;
+  line-height: 1.7;
+  font-size: 0.92rem;
+}
+
+.politica-texto strong {
+  color: #d4d4d9;
+}
+
+/* Mobile: sumário em coluna única, número menor */
+@media (max-width: 767px) {
+  .politica-sumario-lista {
+    columns: 1;
+  }
+
+  .politica-secao {
+    gap: 14px;
+  }
+
+  .politica-numero {
+    font-size: 1.6rem;
+    min-width: 36px;
+  }
+}
+
+.compra-concluida-icone {
+  color: #c5a880;
+  font-size: 70px;
+}
+
+.pedido-status {
+  background-color: #c5a880;
+  color: #0a0a0c;
+  padding: 7px 12px;
+  font-weight: 500;
+}
+
+.pedido-produto-imagem {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #2a2a2f;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c5a880;
+  font-size: 25px;
+}
+
+.pedido-valor {
+  color: #c5a880;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.perfil-avatar {
+  width: 65px;
+  height: 65px;
+  border: 1px solid #c5a880;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c5a880;
+  font-size: 28px;
+}
+
+.perfil-input {
+  background-color: #0a0a0c;
+  border: 1px solid #2a2a2f;
+  color: #f5f5f5;
+}
+
+.perfil-input:focus {
+  background-color: #0a0a0c;
+  color: #f5f5f5;
+  border-color: #c5a880;
+  box-shadow: none;
+}
+
+.pedido-btn {
+  font-size: 13px;
+}
+
+/* ENDEREÇO DO CLIENTE */
+
+.endereco-icone {
+  color: #c5a880;
+  font-size: 28px;
+}
+
+.endereco-input {
+  background-color: #0a0a0c;
+  border: 1px solid #2a2a2f;
+  color: #f5f5f5;
+}
+
+.endereco-input:focus {
+  background-color: #0a0a0c;
+  color: #f5f5f5;
+  border-color: #c5a880;
+  box-shadow: none;
+}
+
+/* SUPORTE / CHATBOT */
+
+.chat-container {
+  width: 100%;
+}
+
+.chat-header {
+  background-color: #0a0a0c;
+  border: 1px solid #2a2a2f;
+  border-radius: 8px 8px 0 0;
+  padding: 18px;
+}
+
+.chat-header h5 {
+  margin-bottom: 5px;
+  color: #c5a880;
+}
+
+.chat-header small {
+  color: #77777d;
+}
+
+.chat-window {
+  height: 350px;
+  overflow-y: auto;
+  background-color: #0a0a0c;
+  border-left: 1px solid #2a2a2f;
+  border-right: 1px solid #2a2a2f;
+  padding: 20px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.user-message {
+  margin-left: auto;
+  background-color: #c5a880;
+  color: #0a0a0c;
+}
+
+.bot-message {
+  margin-right: auto;
+  background-color: #111114;
+  border: 1px solid #2a2a2f;
+  color: #f5f5f5;
+}
+
+.chat-form {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  background-color: #111114;
+  border: 1px solid #2a2a2f;
+  border-radius: 0 0 8px 8px;
+}
+
+.chat-form input {
+  flex: 1;
+  background-color: #0a0a0c;
+  border: 1px solid #2a2a2f;
+  color: #f5f5f5;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.chat-form input:focus {
+  outline: none;
+  border-color: #c5a880;
+}
+
+.chat-form button {
+  background-color: #c5a880;
+  color: #0a0a0c;
+  border: 1px solid #c5a880;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-weight: 600;
+}
+
+.suporte-icone {
+  color: #c5a880;
+  font-size: 22px;
+}
+
+/* LOCALIZAÇÃO DA LOJA */
+
+.localizacao-mapa {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #2a2a2f;
+  border-radius: 14px;
+  background-color: #111114;
+}
+
+.localizacao-mapa iframe {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+}
+
+.localizacao-info {
+  height: 100%;
+  background-color: #111114;
+  border: 1px solid #1e1e24;
+  border-radius: 14px;
+  padding: 25px;
+}
+
+.localizacao-info h4 {
+  color: #f5f5f5;
+}
+
+.localizacao-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.localizacao-item i {
+  color: #c5a880;
+  font-size: 23px;
+  min-width: 25px;
+}
+
+.localizacao-item strong {
+  color: #f5f5f5;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.localizacao-item p {
+  color: #77777d;
+  margin: 0;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.localizacao-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.localizacao-botoes .btn {
+  min-height: 42px;
+}
+
+@media (max-width: 767px) {
+
+  .localizacao-mapa iframe {
+    height: 300px;
+  }
+
+  .localizacao-info {
+    padding: 20px;
+  }
+
+  .localizacao-botoes {
+    flex-direction: column;
+  }
+
+  .localizacao-botoes .btn {
+    width: 100%;
+  }
+
+}
+
+
+/* ==========================================================================
+   BOTÕES DA PÁGINA DE LOCALIZAÇÃO — TAMANHO UNIFICADO
+   ========================================================================== */
+
+.localizacao-botoes .btn {
+  min-height: 42px;
+  padding: 10px 16px !important;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em;
+
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+/* Mantém o estilo dourado dos dois botões */
+.localizacao-botoes .login-btn,
+.localizacao-botoes .carrinho-btn-ver {
+  min-height: 42px;
+  font-size: 13px !important;
+  padding: 10px 16px !important;
+}
+
+/* Ícones com o mesmo tamanho */
+.localizacao-botoes .btn i {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* No celular, os dois ocupam a mesma largura */
+@media (max-width: 767px) {
+  .localizacao-botoes .btn {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   FORMULÁRIOS DE PRODUTO (novo / editar) — mesmo visual escuro do login
+   ========================================================================== */
+
+form[action^="/produto"] .form-label {
+  color: #8e8e93;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+form[action^="/produto"] .form-control {
+  background-color: #0a0a0c;
+  border: 1px solid #1e1e24;
+  border-radius: 6px;
+  color: #e2e2e6;
+}
+
+form[action^="/produto"] .form-control::placeholder {
+  color: #515156;
+}
+
+form[action^="/produto"] .form-control:focus {
+  background-color: #0a0a0c;
+  border-color: #c5a880;
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(197, 168, 128, 0.15);
+}
+
+
+/* ==========================================================================
+   SELETOR + / − DOS FORMULÁRIOS DE PRODUTO (preço e estoque)
+   Mesmo visual dos botões de quantidade do carrinho
+   ========================================================================== */
+
+.stepper-produto {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 260px;
+}
+
+.stepper-produto .form-control {
+  text-align: center;
+}
+
+/* Tira a setinha branca nativa do navegador */
+.stepper-produto input[type="number"]::-webkit-outer-spin-button,
+.stepper-produto input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.stepper-produto input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.stepper-produto .stepper-menos,
+.stepper-produto .stepper-mais {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  background: #1e1e24;
+  color: #e2e2e6;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.stepper-produto .stepper-menos:hover,
+.stepper-produto .stepper-mais:hover {
+  background: #c5a880;
+  color: #0a0a0c;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main,
+body>div.container,
+body>.container-md,
+body>.container-fluid {
+  flex: 1;
+}
+
+footer.footer-custom {
+  margin-top: auto;
+}
+
+.card-produto-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-produto-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 12, 0.72);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.card-produto:hover .card-produto-overlay {
+  opacity: 1;
+}
+
+.card-produto-overlay .btn {
+  pointer-events: none;
+}
+
+.produto-bootstrap-img {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  height: 420px !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 767px) {
+  .produto-bootstrap-img {
+    height: 260px !important;
+  }
+}
+
+.card-produto {
+  justify-content: flex-start !important;
+}
+
+.card-produto .card-nome {
+  min-height: 2.6em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-produto .btn.login-btn {
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   CATEGORIAS EM DESTAQUE — home page
+   ========================================================================== */
+
+.categoria-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #111114;
+  border: 1px solid #1e1e24;
+  border-radius: 14px;
+  padding: 24px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.categoria-card:hover {
+  border-color: #c5a880;
+  background: #16161a;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.categoria-card i {
+  font-size: 28px;
+  color: #c5a880;
+}
+
+.categoria-card span {
+  color: #e2e2e6;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   SELO "MAIS VENDIDO" / "NOVO" — cards de produto da home
+   ========================================================================== */
+
+.produto-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.produto-badge-vendido {
+  background-color: #c5a880;
+  color: #0a0a0c;
+}
+
+.produto-badge-novo {
+  background-color: #0a0a0c;
+  border: 1px solid #c5a880;
+  color: #c5a880;
+}
+
+/* Galeria da página de produto: miniaturas + imagem principal */
+.produto-galeria {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.produto-galeria .produto-bootstrap-img {
+  flex: 1;
+}
+
+.produto-miniaturas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.produto-miniatura {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  background-color: #16161a;
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: 10px;
+  padding: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.6;
+}
+
+.produto-miniatura:hover {
+  opacity: 1;
+  border-color: rgba(197, 168, 128, 0.6);
+}
+
+.produto-miniatura-ativa {
+  opacity: 1;
+  border-color: #c5a880;
+}
+
+@media (max-width: 767px) {
+  .produto-galeria {
+    flex-direction: column-reverse;
+  }
+
+  .produto-miniaturas {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .produto-miniatura {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* Breadcrumb da página de produto */
+.produto-breadcrumb {
+  --bs-breadcrumb-divider-color: #6c6c74;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.produto-breadcrumb .breadcrumb-item a {
+  color: #a8a8b0;
+  text-decoration: none;
+}
+
+.produto-breadcrumb .breadcrumb-item a:hover {
+  color: #c5a880;
+  text-decoration: underline;
+}
+
+.produto-breadcrumb .breadcrumb-item.active {
+  color: #e2e2e6;
+}
+
+/* ===== Tela de usuários: tabela estilizada ===== */
+.usuarios-contagem {
+  color: #8e8e93;
+  font-size: 0.85rem;
+}
+
+.tabela-usuarios-wrap {
+  background-color: #111114;
+  border: 1px solid #1e1e24;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.tabela-usuarios {
+  --bs-table-bg: transparent;
+  --bs-table-color: #e2e2e6;
+  --bs-table-border-color: #1e1e24;
+  --bs-table-hover-bg: rgba(197, 168, 128, 0.06);
+  --bs-table-hover-color: #e2e2e6;
+}
+
+.tabela-usuarios thead th {
+  background-color: #16161a;
+  color: #c5a880;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.3);
+  padding: 14px 20px;
+}
+
+.tabela-usuarios tbody td {
+  padding: 16px 20px;
+  color: #c9c9ce;
+  font-size: 0.92rem;
+}
+
+.tabela-usuarios tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.usuario-avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(197, 168, 128, 0.12);
+  border: 1px solid rgba(197, 168, 128, 0.45);
+  color: #c5a880;
+  font-weight: 600;
+}
+
+.usuario-nome {
+  color: #e2e2e6;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.usuario-email {
+  color: #8e8e93;
+  font-size: 0.82rem;
+}
+
+/* Modal no padrão do site */
+.modal-escuro {
+  background-color: #111114;
+  color: #e2e2e6;
+  border: 1px solid #1e1e24;
+  border-radius: 14px;
+}
+
+.modal-escuro .modal-header,
+.modal-escuro .modal-footer {
+  border-color: #1e1e24;
+}
+
+.modal-escuro .modal-title {
+  color: #c5a880;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

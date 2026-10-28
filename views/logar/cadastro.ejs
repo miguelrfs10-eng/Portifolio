@@ -1,0 +1,53 @@
+<% title = "Cadastro" %>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-8 col-md-6 col-lg-4">
+
+            <div class="card login-card shadow-sm">
+                <div class="card-body p-4 p-md-5">
+
+                    <h2 class="login-titulo text-center mb-4">CRIAR CONTA</h2>
+
+                    <% if (erro) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <%= erro %>
+                        </div>
+                    <% } %>
+
+                    <form action="/logar/cadastro" method="post">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome completo</label>
+                            <input type="text" class="form-control" name="nome" id="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(11) 90000-0000">
+                        </div>
+                        <div class="mb-3">
+                            <label for="senha" class="form-label">Senha</label>
+                            <input type="password" class="form-control" name="senha" id="senha" minlength="6" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmarSenha" class="form-label">Confirmar senha</label>
+                            <input type="password" class="form-control" name="confirmarSenha" id="confirmarSenha" minlength="6" required>
+                        </div>
+
+                        <button type="submit" class="btn login-btn w-100 mt-2">Criar conta</button>
+
+                        <p class="signup text-center mb-0 mt-3">Já tem uma conta?
+                            <a rel="noopener noreferrer" href="/logar/login">Entrar</a>
+                        </p>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<% title = funcionario.nomeUsuario %>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-8 col-lg-6">
+
+            <div class="card login-card shadow-sm">
+                <div class="card-body p-4 p-md-5">
+
+                    <h2 class="login-titulo text-center mb-4"><%= funcionario.nomeUsuario %></h2>
+
+                    <dl class="row mb-4">
+
+                        <dt class="col-sm-4 form-label">Nome completo</dt>
+                        <dd class="col-sm-8"><%= funcionario.nomeCompleto %></dd>
+
+                        <dt class="col-sm-4 form-label">Cargo</dt>
+                        <dd class="col-sm-8"><%= funcionario.cargo %></dd>
+
+                        <dt class="col-sm-4 form-label">Email</dt>
+                        <dd class="col-sm-8"><%= funcionario.email %></dd>
+
+                    </dl>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="/funcionarios" class="btn btn-sm carrinho-btn-ver">Voltar</a>
+                        <a href="/funcionarios/<%= funcionario.id %>/editar" class="btn btn-sm carrinho-btn-editar">Editar</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

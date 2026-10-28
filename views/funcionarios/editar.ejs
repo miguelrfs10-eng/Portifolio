@@ -1,0 +1,51 @@
+<% title = "Editar Funcionário" %>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-8 col-lg-5">
+
+            <div class="card login-card shadow-sm">
+                <div class="card-body p-4 p-md-5">
+
+                    <h2 class="login-titulo text-center mb-4">EDITAR FUNCIONÁRIO</h2>
+
+                    <form action="/funcionarios/<%= funcionario.id %>/atualizar" method="post">
+
+                        <div class="mb-3">
+                            <label for="nomeUsuario" class="form-label">Nome de usuário</label>
+                            <input type="text" class="form-control" id="nomeUsuario" name="nomeUsuario"
+                                value="<%= funcionario.nomeUsuario %>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nomeCompleto" class="form-label">Nome completo</label>
+                            <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto"
+                                value="<%= funcionario.nomeCompleto %>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cargo" class="form-label">Cargo</label>
+                            <input type="text" class="form-control" id="cargo" name="cargo"
+                                value="<%= funcionario.cargo %>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                value="<%= funcionario.email %>" required>
+                        </div>
+
+                        <button type="submit" class="btn login-btn w-100 mt-2">Salvar alterações</button>
+
+                        <p class="signup text-center mb-0 mt-3">
+                            <a href="/funcionarios">Cancelar</a>
+                        </p>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

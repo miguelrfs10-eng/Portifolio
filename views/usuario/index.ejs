@@ -1,0 +1,105 @@
+<% title = "Usuários" %>
+
+<div class="container my-4">
+
+    <div class="row mb-4 align-items-center">
+        <div class="col">
+            <h1 class="carrinho-titulo mb-1">Gestão de Usuários</h1>
+            <span class="usuarios-contagem"><%= lista.length %> <%= lista.length === 1 ? 'cliente cadastrado' : 'clientes cadastrados' %></span>
+        </div>
+        <div class="col-auto">
+            <a href="/usuarios/novo" class="btn login-btn btn-sm">+ Usuário</a>
+        </div>
+    </div>
+
+    <% if (erro) { %>
+        <div class="alert alert-danger" role="alert"><%= erro %></div>
+    <% } %>
+
+    <% if (lista.length === 0) { %>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card carrinho-vazio-card text-center p-5">
+                    <h5 class="card-title">Nenhum usuário cadastrado</h5>
+                    <p class="card-text">Adicione o primeiro usuário.</p>
+                    <a href="/usuarios/novo" class="btn login-btn mx-auto mt-2">+ Adicionar Usuário</a>
+                </div>
+            </div>
+        </div>
+
+    <% } else { %>
+
+        <div class="tabela-usuarios-wrap">
+            <div class="table-responsive">
+                <table class="table tabela-usuarios align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Usuário</th>
+                            <th class="d-none d-md-table-cell">Telefone</th>
+                            <th class="d-none d-md-table-cell">Cadastro</th>
+                            <th class="text-end">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% lista.forEach(u => { %>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <span class="usuario-avatar"><%= (u.nome || '?').charAt(0).toUpperCase() %></span>
+                                        <div>
+                                            <div class="usuario-nome"><%= u.nome %></div>
+                                            <div class="usuario-email"><%= u.email %></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="d-none d-md-table-cell"><%= u.telefone || '-' %></td>
+                                <td class="d-none d-md-table-cell"><%= u.dataCadastro ? new Date(u.dataCadastro).toLocaleDateString('pt-BR') : '-' %></td>
+                                <td class="text-end text-nowrap">
+                                    <a href="/usuarios/<%= u.id %>" class="btn btn-sm carrinho-btn-ver">Ver</a>
+                                    <a href="/usuarios/<%= u.id %>/editar" class="btn btn-sm carrinho-btn-editar">Editar</a>
+                                    <button type="button" class="btn btn-sm carrinho-btn-remover"
+                                        data-bs-toggle="modal" data-bs-target="#modalRemover"
+                                        data-id="<%= u.id %>" data-nome="<%= u.nome %>">
+                                        Remover
+                                    </button>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    <% } %>
+
+</div>
+
+<!-- MODAL DE CONFIRMAÇÃO -->
+<div class="modal fade" id="modalRemover" tabindex="-1" aria-labelledby="modalRemoverTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-escuro">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRemoverTitulo">Remover usuário?</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                Você vai remover <strong id="modalRemoverNome"></strong>. Essa ação não pode ser desfeita.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm carrinho-btn-ver" data-bs-dismiss="modal">Cancelar</button>
+                <form id="formRemover" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-sm carrinho-btn-remover">Remover</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('modalRemover').addEventListener('show.bs.modal', function (evento) {
+        var botao = evento.relatedTarget
+        document.getElementById('modalRemoverNome').textContent = botao.getAttribute('data-nome')
+        document.getElementById('formRemover').action = '/usuarios/' + botao.getAttribute('data-id') + '/remover'
+    })
+</script>

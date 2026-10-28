@@ -1,0 +1,108 @@
+<% title = "Compra Concluída" %>
+
+<div class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-9 col-lg-7">
+
+            <div class="carrinho-resumo text-center p-5">
+
+                <div class="mb-4">
+                    <i class="bi bi-check-circle-fill compra-concluida-icone"></i>
+                </div>
+
+                <h1 class="carrinho-titulo mb-3">
+                    Compra concluída!
+                </h1>
+
+                <p class="fs-5 mb-4">
+                    Seu pedido foi realizado com sucesso.
+                </p>
+
+                <div class="carrinho-lista text-start mb-4">
+
+                    <div class="carrinho-item">
+
+                        <div class="carrinho-item-info">
+                            <div class="carrinho-item-nome">
+                                Número do pedido
+                            </div>
+                        </div>
+
+                        <div class="carrinho-item-precos text-end">
+                            <div class="carrinho-item-total">
+                                <%= pedido ? '#' + String(pedido.id).padStart(6, '0') : '—' %>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="carrinho-item">
+
+                        <div class="carrinho-item-info">
+                            <div class="carrinho-item-nome">
+                                Status do pagamento
+                            </div>
+                        </div>
+
+                        <div class="carrinho-item-precos text-end">
+                            <div class="carrinho-frete-gratis">
+                                Aprovado
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="carrinho-item">
+
+                        <div class="carrinho-item-info">
+                            <div class="carrinho-item-nome">
+                                Status do pedido
+                            </div>
+                        </div>
+
+                        <div class="carrinho-item-precos text-end">
+                            <div class="carrinho-item-total">
+                                <%= pedido ? pedido.acomp.status : 'Em preparação' %>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <% if (pedido) { %>
+                    <div class="text-start mb-4">
+                        <%- include('../fragmento/acompanhamento', { acomp: pedido.acomp }) %>
+                    </div>
+                <% } %>
+
+                <p class="text-secondary mb-4">
+                    Obrigado por comprar com a CargaTop!
+                    Você poderá acompanhar seu pedido pela sua conta.
+                </p>
+
+                <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
+
+                    <a href="/usuarios/pedidos" class="btn login-btn pedido-btn">
+                        Acompanhar pedido
+                    </a>
+
+                    <a href="/produto" class="btn carrinho-btn-ver pedido-btn">
+                        Continuar comprando
+                    </a>
+
+                    <a href="/carrinho" class="btn carrinho-btn-ver pedido-btn">
+                        Voltar ao carrinho
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

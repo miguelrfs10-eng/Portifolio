@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Teste da API</title>
+<style>
+  body { font-family: sans-serif; background: #0a0a0c; color: #e2e2e6; padding: 20px; }
+  button { margin: 5px; padding: 10px 16px; background: #1e1e24; color: #e2e2e6; border: 1px solid #c5a880; border-radius: 6px; cursor: pointer; }
+  button:hover { background: #c5a880; color: #0a0a0c; }
+  pre { background: #111114; padding: 15px; border-radius: 8px; white-space: pre-wrap; word-break: break-word; }
+  input { display: block; margin: 5px 0; padding: 8px; width: 300px; }
+</style>
+</head>
+<body>
+
+<h2>Teste da API - Carga Top</h2>
+
+<h3>1. Listar produtos</h3>
+<button onclick="listarProdutos()">GET /api/produto</button>
+
+<h3>2. Login</h3>
+<input id="loginEmail" placeholder="email" value="matheussousa6626372@gmail.com">
+<input id="loginSenha" placeholder="senha" type="password">
+<button onclick="login()">POST /api/logar/login</button>
+
+<h3>3. Ver carrinho (precisa estar logado)</h3>
+<button onclick="verCarrinho()">GET /api/carrinho</button>
+
+<h3>4. Adicionar item ao carrinho (precisa estar logado)</h3>
+<input id="produtoUid" placeholder="UID do produto">
+<button onclick="adicionarCarrinho()">POST /api/carrinho</button>
+
+<h3>Resultado:</h3>
+<pre id="resultado">Clique em algum botão acima...</pre>
+
+<script>
+function mostrar(dado) {
+  document.getElementById('resultado').textContent = JSON.stringify(dado, null, 2)
+}
+
+async function listarProdutos() {
+  const resposta = await fetch('/api/produto')
+  mostrar(await resposta.json())
+}
+
+async function login() {
+  const email = document.getElementById('loginEmail').value
+  const senha = document.getElementById('loginSenha').value
+  const resposta = await fetch('/api/logar/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, senha })
+  })
+  mostrar(await resposta.json())
+}
+
+async function verCarrinho() {
+  const resposta = await fetch('/api/carrinho')
+  mostrar(await resposta.json())
+}
+
+async function adicionarCarrinho() {
+  const ProdutoUID = document.getElementById('produtoUid').value
+  const resposta = await fetch('/api/carrinho', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ProdutoUID, Quantidade: 1 })
+  })
+  mostrar(await resposta.json())
+}
+</script>
+
+</body>
+</html>

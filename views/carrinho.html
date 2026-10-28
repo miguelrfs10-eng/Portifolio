@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/styleCarrinho.css">
+</head>
+<body>
+  
+  <header>
+
+    <div class="navegação">
+      <a href="index.html">
+        <img src="../img/logo grupo2.png">
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="index.html">Início</a>
+        <a href=""></a>
+        <a href="">Carregadores</a>
+        <a href=""></a>
+        <a href="manutenção.html">Serviços</a>
+      </nav>
+
+      <div class="pesquisa">
+        <input type="text" placeholder="Pesquisa">
+        <button>
+          <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-5/24/search-alt-256.png"
+            alt="Pesquisar" width="16" height="16">
+        </button>
+      </div>
+
+      <div class="usuario">
+        <button onclick="location.href='./login.html'">
+          <img src="https://cdn1.iconfinder.com/data/icons/materia-arrows-symbols-vol-8/24/018_322_door_enter_signin_login-512.png" width="16" height="16" alt="Entrar">
+          <span></span>
+        </button>
+
+        <button onclick="location.href='./cadastro.html'">
+          <img src="https://cdn3.iconfinder.com/data/icons/essential-rounded/66/Rounded-38-512.png" width="16" height="16" alt="Cadastro">
+
+        </button>
+      </div>
+
+      <input type="checkbox" id="menu-escondido" class="menu-escondido">
+      <label for="menu-escondido" class="hamburguer">
+        <span class="linha linha1"></span>
+        <span class="linha linha2"></span>
+        <span class="linha linha3"></span>
+      </label>
+
+      <ul class="menu">
+        <li><a href="">Celulares</a></li>
+        <li><a href="">Carregadores</a></li>
+        <li><a href="comprar.html"></a></li>
+        <li><a href="manutenção.html">Serviços</a></li>
+      </ul>
+    </div>
+    
+  </header>
+
+<main>
+
+  <div class="carrinho">
+    <div class="imagem-carrinho">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.1NgkGoVnB8cfGIP6W2AUvAHaHa?rs=1&pid=ImgDetMain" alt="Carregador Turbo 20W">
+    </div>
+
+      <h2>
+      <b>Carregador Turbo 20W</b><br>
+      </h2>
+      <h3><strong>R$ 79,90</strong></h3>
+
+    <div class="quantidade">
+        <button class="menos"> − </button>
+        <input type="number" id="quantidade" value="1" min="1">
+        <button class="mais">+</button>
+    </div>
+
+    
+  </div>
+
+  
+
+  <div class="carrinho">
+    <div class="imagem-carrinho">
+      <img src="https://m.media-amazon.com/images/I/51x5K7z7qZL._AC_SX466_.jpg" alt="Carregador Turbo 20W">
+    </div>
+
+    
+      <h2>
+        <b>Carregador Rápido sem fio</b><br>
+      </h2>
+      <h3><strong>R$40,00</strong></h3>
+    <div class="quantidade">
+        <button class="menos"> − </button>
+        <input type="number" id="quantidade" value="1" min="1">
+        <button class="mais">+</button>
+    </div>
+  </div>
+
+  <div class="carrinho">
+    <div class="imagem-carrinho">
+      <img src="https://m.media-amazon.com/images/I/61cnEFbq2LL._AC_SX679_.jpg"
+        alt="Carregador de Indução">
+    </div>
+
+    
+      <h2>
+        <b>Carregador Veicular Turbo 60W Pro</b><br>
+      </h2>
+      <h3><strong>R$27,90</strong></h3>
+    <div class="quantidade">
+        <button class="menos"> − </button>
+        <input type="number" id="quantidade" value="1" min="1">
+        <button class="mais">+</button>
+    </div>
+   
+  </div>
+
+  <div class="carrinho">
+    <div class="imagem-carrinho">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.CWqWtHe8yOXro5MexqnZkQHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+        width="100%" src=" width=" 100% height="100%">
+    </div>
+
+      <h2>
+        <b>OIVO Estação de carregamento de controle XSX</b><br>
+      </h2>
+      <h3><strong>R$120,00</strong></h3>
+    <div class="quantidade">
+        <button class="menos"> − </button>
+        <input type="number" id="quantidade" value="1" min="1">
+        <button class="mais">+</button>
+    </div>
+    
+  </div>
+
+  <div class="carrinho">
+    <div class="imagem-carrinho">
+    <img src="https://m.media-amazon.com/images/I/515B-+-DenL._AC_UL320_.jpg" width="100%" height="100%">
+  </div>
+
+      <h2>
+        <b>Base de carregamento RGB</b><br>
+      </h2>
+      <h3><strong>R$150,00</strong></h3>
+    <div class="quantidade">
+        <button class="menos"> − </button>
+        <input type="number" id="quantidade" value="1" min="1">
+        <button class="mais">+</button>
+    </div>
+
+    
+    
+  </div>
+
+  
+  
+</main>
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="#">Carregadores</a></li>
+          <li><a href="#">Carrinho</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Ajuda</h3>
+        <ul>
+          <li><a href="politicas.html">Privacidade</a></li>
+          <li><a href="">Suporte</a></li>
+          <li><a href="manutenção.html">Serviços</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contato</h3>
+        <ul>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="mailto:cargaTop@gmail.com">Email</a></li>
+          <li>Atendimento: 08h - 18h</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Redes Sociais</h3>
+        <div class="footer-social">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 — Cargatop. Todos os direitos reservados.
+    </div>
+
+    <a href="chatbot.html" class="whatsapp-button" >
+
+      <img src="../img/logo grupo2.png" alt="WhatsApp">
+
+    </a>
+  </footer>
+
+
+  <script>
+      const btnMais = document.querySelector('.mais');
+      const btnMenos = document.querySelector('.menos');
+      const inputQtd = document.getElementById('quantidade');
+
+      btnMais.addEventListener('click', () => {
+          inputQtd.value = Number(inputQtd.value) + 1;
+      });
+
+      btnMenos.addEventListener('click', () => {
+          if (Number(inputQtd.value) > Number(inputQtd.min)) {
+              inputQtd.value = Number(inputQtd.value) - 1;
+          }
+      });
+  </script>
+
+  
+</body>
+</html>

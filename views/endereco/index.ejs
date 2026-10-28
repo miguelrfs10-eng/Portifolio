@@ -1,0 +1,206 @@
+<% title = "Endereço do Cliente" %>
+
+<div class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-lg-9">
+
+            <div class="mb-4">
+
+                <h1 class="carrinho-titulo">
+                    Endereço do cliente
+                </h1>
+
+                <p class="text-secondary">
+                    Consulte e gerencie o endereço utilizado para suas compras.
+                </p>
+
+            </div>
+
+            <% if (salvo) { %>
+                <div class="alert alert-success" role="alert">
+                    Endereço salvo com sucesso.
+                </div>
+            <% } %>
+
+            <div class="carrinho-resumo">
+
+                <div class="d-flex align-items-center gap-3 mb-4">
+
+                    <div class="perfil-avatar">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+
+                    <div>
+
+                        <h4 class="mb-1">
+                            Endereço de entrega
+                        </h4>
+
+                        <small class="text-secondary">
+                            Dados do endereço do cliente
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <% if (!soCliente) { %>
+
+                    <p class="mb-4">
+                        Contas de funcionário não possuem endereço de entrega.
+                    </p>
+
+                <% } else if (!endereco) { %>
+
+                    <p class="mb-4">
+                        Você ainda não cadastrou um endereço de entrega.
+                    </p>
+
+                <% } else { %>
+
+                    <div class="row g-4 mt-1">
+
+                        <div class="col-12 col-md-8">
+
+                            <label class="form-label">
+                                Rua
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control perfil-input"
+                                value="<%= endereco.Rua %>"
+                                readonly
+                            >
+
+                        </div>
+
+                        <div class="col-12 col-md-4">
+
+                            <label class="form-label">
+                                Número
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control perfil-input"
+                                value="<%= endereco.Numero %>"
+                                readonly
+                            >
+
+                        </div>
+
+                        <div class="col-12 col-md-6">
+
+                            <label class="form-label">
+                                Bairro
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control perfil-input"
+                                value="<%= endereco.Bairro %>"
+                                readonly
+                            >
+
+                        </div>
+
+                        <div class="col-12 col-md-6">
+
+                            <label class="form-label">
+                                Complemento
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control perfil-input"
+                                value="<%= endereco.Complemento || '' %>"
+                                readonly
+                            >
+
+                        </div>
+
+                        <div class="col-12 col-md-6">
+
+                            <label class="form-label">
+                                Cidade
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control perfil-input"
+                                value="<%= endereco.Cidade %>"
+                                readonly
+                            >
+
+                        </div>
+
+                        <div class="col-12 col-md-3">
+
+                            <label class="form-label">
+                                Estado
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control perfil-input"
+                                value="<%= endereco.Estado %>"
+                                readonly
+                            >
+
+                        </div>
+
+                        <div class="col-12 col-md-3">
+
+                            <label class="form-label">
+                                CEP
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control perfil-input"
+                                value="<%= endereco.CEP %>"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+                <% } %>
+
+                <div class="d-flex flex-column flex-md-row gap-2 mt-4">
+
+                    <% if (soCliente) { %>
+
+                        <a href="/usuarios/endereco/editar" class="btn login-btn pedido-btn">
+
+                            <i class="bi bi-pencil"></i>
+
+                            <%= endereco ? 'Editar endereço' : 'Cadastrar endereço' %>
+
+                        </a>
+
+                    <% } %>
+
+                    <a href="/usuarios/perfil" class="btn carrinho-btn-ver pedido-btn">
+
+                        <i class="bi bi-arrow-left"></i>
+
+                        Voltar para minha conta
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

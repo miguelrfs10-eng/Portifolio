@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/stylecompras.css">
+</head>
+<body>
+  <header>  
+    <div class="navegação">
+      <a href="index.html">
+        <img src=".../img/logo grupo2.png">
+      </a>
+      <nav class="nav-desktop">
+        <a href="index.html">Início</a>
+        <a href=""></a>
+        <a href="">Carregadores</a>
+        <a href="manutenção.html">Serviços</a>
+      </nav>
+
+      <div class="pesquisa">
+        <input type="text" placeholder="Pesquisa">
+        <button>
+          <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-5/24/search-alt-256.png"
+            alt="Pesquisar" width="16" height="16">
+        </button>
+      </div>
+
+      <div class="usuario">
+
+        <button onclick="location.href='./carrinho.html'">
+          <img src="https://cdn-icons-png.flaticon.com/512/34/34562.png" width="16" height="16" alt="carrinho">
+        </button>
+        
+        <button onclick="location.href='./login.html'">
+          <img src="https://cdn1.iconfinder.com/data/icons/materia-arrows-symbols-vol-8/24/018_322_door_enter_signin_login-512.png" width="16" height="16" alt="Entrar">
+          <span></span>
+        </button>
+
+        <button onclick="location.href='./cadastro.html'">
+          <img src="https://cdn3.iconfinder.com/data/icons/essential-rounded/66/Rounded-38-512.png" width="16" height="16" alt="Cadastro">
+
+        </button>
+      </div>
+
+      <input type="checkbox" id="menu-escondido" class="menu-escondido">
+      <label for="menu-escondido" class="hamburguer">
+        <span class="linha linha1"></span>
+        <span class="linha linha2"></span>
+        <span class="linha linha3"></span>
+      </label>
+
+      <ul class="menu">
+        <li><a href="mailto:higor.vmorais@senacsp.edu.br">E-mail</a></li>
+        <li><a href="tel:+5511940028922">Telefone</a></li>
+        <li><a href="https://wa.me/+5511940028922">WhatsApp</a></li>
+        <li><a href="manutenção.html">Manutenção</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    
+
+    <div class="true">
+    <div class="produto-container">
+      <div class="imagem-produto">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.1NgkGoVnB8cfGIP6W2AUvAHaHa?rs=1&pid=ImgDetMain" alt="Carregador Turbo 20W">
+      </div>
+
+      <div class="verificação">
+      <div class="descricao-produto">
+        <h2>
+          <b>Carregador Turbo 20W</b><br>
+            Cabo Tipo-C compatível com iPhone 15 / 15 Pro Max / 15 Plus<br><br>
+          </h2>
+          <h3><strong>R$ 79,90</strong></h3>
+        </div>
+      </div>
+      </div>
+
+      <fieldset>
+        <legend>Selecione uma opção</legend>
+        <div class="deb-cred">
+
+          <input type="radio" id="debito" value="debito" name="selecao">
+          <label for="debito">Débito</label>
+
+          <input type="radio" id="credito" value="credito" name="selecao" checked>
+          <label for="credito">Crédito</label>
+
+        </div>
+      </fieldset>
+
+     <div class="cartao">
+      <h1>Pagamento</h1>
+      <form id="payment-form">
+        
+          <label for="card-name">Nome no Cartão:</label>
+          <input type="text" id="card-name" name="card-name" required>
+
+          <label for="card-number">Número do Cartão:</label>
+          <input type="text" id="card-number" name="card-number" required>
+
+          <label for="card-expiry">Validade (MM/AA):</label>
+          <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA" required>
+
+          <label for="card-cvc">Código de Segurança (CVC):</label>
+          <input type="text" id="card-cvc" name="card-cvc" required>
+
+        <button class="botão" type="submit">Finalizar Pagamento</button>
+      
+      </form>
+      </div>
+
+      
+      </div>
+     
+
+        
+      
+  </main>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="#">Carregadores</a></li>
+          <li><a href="#">Carrinho</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Ajuda</h3>
+        <ul>
+          <li><a href="politicas.html">Privacidade</a></li>
+          <li><a href="">Suporte</a></li>
+          <li><a href="manutenção.html">Serviços</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contato</h3>
+        <ul>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="mailto:cargaTop@gmail.com">Email</a></li>
+          <li>Atendimento: 08h - 18h</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Redes Sociais</h3>
+        <div class="footer-social">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 — Cargatop. Todos os direitos reservados.
+    </div>
+
+    <a href="chatbot.html" class="whatsapp-button" >
+
+      <img src="../img/logo grupo2.png" alt="WhatsApp">
+
+    </a>
+  </footer>
+
+  <script>
+
+      const form = document.getElementById('payment-form');
+
+      form.addEventListener('submit', function(event) {
+          event.preventDefault(); // Impede o envio padrão do formulário
+
+          // Coletar os dados dos campos
+          const cardName = document.getElementById('card-name').value;
+          const cardNumber = document.getElementById('card-number').value;
+          const cardExpiry = document.getElementById('card-expiry').value;
+          const cardCvc = document.getElementById('card-cvc').value;
+
+          // Validação simples
+          if (!cardName || !cardNumber || !cardExpiry || !cardCvc) {
+              alert('Por favor, preencha todos os campos.');
+              return;
+          }
+
+          console.log('Processando pagamento com os dados:');
+          console.log('Nome:', cardName);
+          console.log('Número:', cardNumber);
+          console.log('Validade:', cardExpiry);
+          console.log('CVC:', cardCvc);
+
+          // Simulação de sucesso
+          alert("Pagamento processado com sucesso!");
+      });
+
+  </script>
+
+</body>
+</html>
+
+
+
+<!-- 
+
+
+  <div class="parcela">
+      <label for="conta">Selecione a conta que deseja</label>
+      <select id="conta">
+          <option value="">Parecelar em</option>
+          <option value="Pessoal">2x</option>
+          <option value="Estudante">4x</option>
+          <option value="Corporativo">8x</option>
+      </select>
+  </div>
+
+
+
+<div>
+    <fieldset>
+        <legend> Selecione uma opção</legend>
+        <div class="cartao">
+            <input type="radio" id="mensal" value="mensal" name="selecao">
+            <label for="mensal">Debito</label>
+            <input type="radio" id="anual" value="anual" checked>
+            <label for="anual">Credito</label>
+        </div>
+    </fieldset>
+</div>
+
+  <div><button class="botão">Confirmar Compra</button></div>-->

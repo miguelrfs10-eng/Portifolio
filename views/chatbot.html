@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat-Bot Ajustado</title>
+  <link rel="stylesheet" href="../css/styleindex.css">
+</head>
+<body>
+
+  <!-- HEADER ORIGINAL MANTIDO -->
+  <header>
+    <div class="navegação">
+      <a href="index.html">
+        <img src="../img/logo grupo2.png">
+      </a>
+      <nav class="nav-desktop">
+        <a href="index.html">Início</a>
+        <a href="">Carregadores</a>
+        <a href="manutenção.html">Serviços</a>
+      </nav>
+      <div class="pesquisa">
+        <input class="campo-pesquisa" type="text" placeholder="Pesquisar...">
+        <button>
+          <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-5/24/search-alt-256.png" width="16" height="16">
+        </button>
+      </div>
+      <div class="usuario">
+
+        <button onclick="location.href='./carrinho.html'">
+          <img src="https://cdn-icons-png.flaticon.com/512/34/34562.png" width="16" height="16" alt="carrinho">
+        </button>
+        
+        <button onclick="location.href='./login.html'">
+          <img src="https://cdn1.iconfinder.com/data/icons/materia-arrows-symbols-vol-8/24/018_322_door_enter_signin_login-512.png" width="16" height="16"></button>
+        <button onclick="location.href='./cadastro.html'">
+          <img src="https://cdn3.iconfinder.com/data/icons/essential-rounded/66/Rounded-38-512.png" width="16" height="16"></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="chat-container" id="chat-container">
+      <div class="chat-header"><h3>Suporte cargaTop</h3></div>
+      <div class="chat-window" id="chat-window"></div>
+      <form class="chat-form" id="chat-form">
+        <input type="text" id="user-input" placeholder="Digite sua mensagem..." autocomplete="off">
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER MANTIDO -->
+  <footer>
+    <div class="footer-container">
+      
+      <div class="footer-col">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="#">Carregadores</a></li>
+          <li><a href="#">Carrinho</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Ajuda</h3>
+        <ul>
+          <li><a href="politicas.html">Privacidade</a></li>
+          <li><a href="">Suporte</a></li>
+          <li><a href="manutenção.html">Serviços</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Contato</h3>
+        <ul>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="mailto:cargaTop@gmail.com">Email</a></li>
+          <li>Atendimento: 08h - 18h</li>
+        </ul>
+      </div>
+      
+      <div class="footer-col"><h3>Redes Sociais</h3>
+        <div class="footer-social">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png"></a>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="footer-bottom">© 2025 — Cargatop. Todos os direitos reservados.</div>
+    
+  </footer>
+
+  <!-- JAVASCRIPT DO CHAT CORRIGIDO -->
+  <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const chatForm = document.getElementById("chat-form");
+          const chatWindow = document.getElementById("chat-window");
+          const userInput = document.getElementById("user-input");
+
+          // Respostas expandidas do bot (O "cérebro" da Top Carga)
+          const responses = {
+            "olá": "Olá! Sou o assistente CargaTop. Como posso ajudar você a encontrar o carregador ideal para o seu aparelho hoje? 🔋",
+            "oi": "Oi! Tudo bem? Fale sobre o tipo de carregador ou acessório que você procura.",
+            "serviços": "A CargaTop é especializada em **venda de carregadores de alta qualidade** e acessórios compatíveis. Trabalhamos apenas com produtos certificados e duráveis.",
+            "carregador": "Temos carregadores para todos os modelos: USB-C, Lightning, Micro USB, e modelos por indução. Você está buscando algum modelo específico, de alta potência (turbo) ou um cabo?",
+            "turbo": "Sim, temos uma linha completa de carregadores turbo e de carregamento rápido. Eles garantem a carga mais eficiente e segura para o seu dispositivo.",
+            "cabo": "Temos cabos reforçados e de diversos tamanhos, compatíveis com todas as marcas. Qual tipo de entrada você precisa (USB-C, Lightning, Micro USB)?",
+            "quem são vocês": "Somos a Top Carga, a loja especializada em carregadores e acessórios com foco em qualidade, certificação e durabilidade.",
+            "loja": "Nossa loja física está localizada em [INSERIR ENDEREÇO AQUI]. Também vendemos online com entrega rápida para todo o Brasil!",
+            "endereço": "Nossa loja está em [Senac SP]. Venha nos visitar de segunda a sexta, das 8h às 18h.",
+            "garantia": "Sim, todos os nossos carregadores e acessórios têm garantia. A duração exata depende do item, mas garantimos a qualidade e troca em caso de defeito de fabricação.",
+            "prazo": "Para compras em nossa loja física, o carregador é imediato. Para compras online, o envio é feito em até 24h úteis.",
+            "contato": "Você pode nos ligar no [1199999999] ou enviar um email para contato@topcarga.com.br. Estamos prontos para te atender!",
+            "whatsapp": "Nosso WhatsApp é o [188888888]. Você pode clicar aqui para falar conosco: [www.whatssapp.com.br]",
+            "obrigado": "De nada! Estou aqui se precisar de algo mais sobre carregadores e acessórios.",
+            "tchau": "Até mais! Agradecemos o contato com a CargaTop. Volte sempre!"
+          };
+
+          chatForm.addEventListener("submit", (e) => {
+              e.preventDefault(); 
+              const userMessage = userInput.value.trim();
+              if (userMessage) {
+                  addMessage(userMessage, "user-message");
+                  respondToUser(userMessage);
+                  userInput.value = ""; 
+              }
+          });
+
+          function addMessage(text, className) {
+              const messageDiv = document.createElement("div");
+              messageDiv.textContent = text;
+              messageDiv.classList.add("message", className);
+              chatWindow.appendChild(messageDiv);
+              chatWindow.scrollTop = chatWindow.scrollHeight; 
+          }
+
+          function respondToUser(userMessage) {
+              // Lógica de resposta baseada em palavras-chave
+              const lowerCaseMessage = userMessage.toLowerCase();
+              let botResponse = "Desculpe, não consegui encontrar uma resposta direta. Tente perguntar sobre **carregadores**, **manutenção** ou o **endereço** da loja.";
+
+              // Itera sobre as respostas buscando a palavra-chave
+              for (const keyword in responses) {
+                  // Checa se a mensagem do usuário inclui a palavra-chave
+                  if (lowerCaseMessage.includes(keyword)) {
+                      botResponse = responses[keyword];
+                      break;
+                  }
+              }
+
+              // Simula um pequeno atraso para parecer mais natural
+              setTimeout(() => {
+                  addMessage(botResponse, "bot-message");
+              }, 500);
+          }
+      });
+  </script>
+</body>
+</html>

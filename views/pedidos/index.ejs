@@ -1,0 +1,84 @@
+<% title = "Meus Pedidos" %>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+
+            <div class="mb-4">
+                <h1 class="carrinho-titulo">Meus pedidos</h1>
+                <p class="text-secondary">
+                    Acompanhe seus pedidos e consulte os detalhes das suas compras.
+                </p>
+            </div>
+
+            <% if (!pedidos || pedidos.length === 0) { %>
+
+                <div class="carrinho-resumo mb-4 text-center" style="position: static;">
+                    <i class="bi bi-box-seam" style="font-size: 40px; color: #c5a880;"></i>
+                    <h5 class="mt-3">Você ainda não fez nenhum pedido</h5>
+                    <a href="/produto" class="btn login-btn pedido-btn mt-2">Ver produtos</a>
+                </div>
+
+            <% } else { %>
+
+                <% pedidos.forEach(function (pedido) { %>
+                    <div class="carrinho-resumo mb-4" style="position: static;">
+
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3">
+                            <div>
+                                <h5 class="mb-1">Pedido #<%= String(pedido.ID).padStart(6, '0') %></h5>
+                                <small class="text-secondary">
+                                    Realizado em <%= new Date(pedido.DataPedido).toLocaleDateString('pt-BR') %>
+                                    · Pagamento: <%= pedido.Pagamento %>
+                                </small>
+                            </div>
+                            <span class="badge pedido-status mt-2 mt-md-0"><%= pedido.acomp.status %></span>
+                        </div>
+
+                        <hr>
+
+                        <%- include('../fragmento/acompanhamento', { acomp: pedido.acomp }) %>
+
+                        <hr>
+
+                        <% pedido.itens.forEach(function (item) { %>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="pedido-produto-imagem">
+                                    <i class="bi bi-box-seam"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1"><%= item.Produto %></h6>
+                                    <small class="text-secondary">Quantidade: <%= item.Quantidade %></small>
+                                </div>
+                                <div class="text-end">
+                                    R$ <%= Number(item.TotalItem).toFixed(2).replace('.', ',') %>
+                                </div>
+                            </div>
+                        <% }) %>
+
+                        <hr>
+
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                            <small class="text-secondary">
+                                Entrega: <%= pedido.Endereco %>, <%= pedido.Cidade %>/<%= pedido.Estado %> — CEP <%= pedido.CEP %>
+                            </small>
+                            <div class="pedido-valor mt-2 mt-md-0">
+                                Total: R$ <%= Number(pedido.Total).toFixed(2).replace('.', ',') %>
+                            </div>
+                        </div>
+
+                    </div>
+                <% }) %>
+
+            <% } %>
+
+            <div class="mt-4">
+                <a href="/" class="btn login-btn pedido-btn">
+                    <i class="bi bi-arrow-left"></i>
+                    Continuar comprando
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

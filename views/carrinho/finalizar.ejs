@@ -1,0 +1,552 @@
+<% title = "Finalizar compra" %>
+
+<div class="container my-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h1>Finalizar compra</h1>
+            <p class="mb-0">
+                Confira seus dados antes de concluir o pedido.
+            </p>
+        </div>
+
+        <a href="/carrinho" class="checkout-voltar">
+            Voltar para o carrinho
+        </a>
+
+    </div>
+
+
+    <% if (!lista || lista.length === 0) { %>
+
+        <div class="checkout-card text-center">
+
+            <h3 class="checkout-card-titulo">
+                Seu carrinho está vazio
+            </h3>
+
+            <p>
+                Adicione algum produto ao carrinho antes de finalizar a compra.
+            </p>
+
+            <a href="/produto" class="btn login-btn">
+                Ver produtos
+            </a>
+
+        </div>
+
+    <% } else { %>
+
+
+        <form action="/carrinho/finalizar" method="POST">
+
+            <div class="row g-4">
+
+                <!-- LADO ESQUERDO -->
+
+                <div class="col-lg-8">
+
+
+                    <!-- ENDEREÇO -->
+
+                    <div class="checkout-card mb-4">
+
+                        <h4 class="checkout-card-titulo">
+                            Endereço de entrega
+                        </h4>
+
+                        <div class="mb-3">
+
+                            <label
+                                for="nome"
+                                class="form-label"
+                            >
+                                Nome completo
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="nome"
+                                name="nome"
+                                value="<%= usuarioLogado ? usuarioLogado.nome : '' %>"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label
+                                for="endereco"
+                                class="form-label"
+                            >
+                                Endereço
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="endereco"
+                                name="endereco"
+                                placeholder="Rua, número e complemento"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="cidade"
+                                    class="form-label"
+                                >
+                                    Cidade
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="cidade"
+                                    name="cidade"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-3">
+
+                                <label
+                                    for="estado"
+                                    class="form-label"
+                                >
+                                    Estado
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="estado"
+                                    name="estado"
+                                    maxlength="2"
+                                    placeholder="SP"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-3">
+
+                                <label
+                                    for="cep"
+                                    class="form-label"
+                                >
+                                    CEP
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="cep"
+                                    name="cep"
+                                    placeholder="00000-000"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PAGAMENTO -->
+
+                    <div class="checkout-card mb-4">
+
+                        <h4 class="checkout-card-titulo">
+                            Forma de pagamento
+                        </h4>
+
+                        <div class="checkout-tabs">
+
+                            <div class="nav nav-tabs border-0">
+
+                                <div class="nav-item">
+
+                                    <label class="nav-link active">
+
+                                        <input
+                                            type="radio"
+                                            name="pagamento"
+                                            value="Cartão de crédito"
+                                            checked
+                                            class="d-none"
+                                        >
+
+                                        Cartão de crédito
+
+                                    </label>
+
+                                </div>
+
+
+                                <div class="nav-item">
+
+                                    <label class="nav-link">
+
+                                        <input
+                                            type="radio"
+                                            name="pagamento"
+                                            value="Pix"
+                                            class="d-none"
+                                        >
+
+                                        Pix
+
+                                    </label>
+
+                                </div>
+
+
+                                <div class="nav-item">
+
+                                    <label class="nav-link">
+
+                                        <input
+                                            type="radio"
+                                            name="pagamento"
+                                            value="Boleto bancário"
+                                            class="d-none"
+                                        >
+
+                                        Boleto bancário
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="pagamento-cartao">
+
+                        <div class="mt-4">
+
+                            <label
+                                for="titular"
+                                class="form-label"
+                            >
+                                Nome do titular
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="titular"
+                                name="titular"
+                                placeholder="Nome do titular do cartão"
+                            >
+
+                        </div>
+
+
+                        <div class="row g-3 mt-1">
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="cartao"
+                                    class="form-label"
+                                >
+                                    Número do cartão
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="cartao"
+                                    name="cartao"
+                                    placeholder="0000 0000 0000 0000"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-3">
+
+                                <label
+                                    for="validade"
+                                    class="form-label"
+                                >
+                                    Validade
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="validade"
+                                    name="validade"
+                                    placeholder="MM/AA"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-3">
+
+                                <label
+                                    for="cvv"
+                                    class="form-label"
+                                >
+                                    CVV
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="cvv"
+                                    name="cvv"
+                                    placeholder="123"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                        <div id="pagamento-pix" class="mt-4 d-none text-center">
+
+                            <p class="mb-1">
+                                <strong>Pagamento por Pix</strong>
+                            </p>
+
+                            <p class="mb-3">
+                                Escaneie o QR Code ou copie o código abaixo.
+                                <br>
+                                <small>Pagamento simulado, apenas para demonstração do projeto.</small>
+                            </p>
+
+                            <div class="d-inline-block bg-white p-2 rounded mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" role="img" aria-label="QR Code do Pix (simulado)" viewBox="0 0 31 31" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h31v31H0z"/><path stroke="#000000" d="M1 1.5h7m1 0h1m1 0h1m3 0h1m4 0h1m2 0h7M1 2.5h1m5 0h1m4 0h1m5 0h2m1 0h1m1 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m3 0h1m2 0h1m1 0h5m2 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m2 0h1m1 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h7m2 0h1m2 0h1m1 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m1 0h2m1 0h4m1 0h1m5 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 8.5h1m5 0h1m1 0h1m3 0h1M1 9.5h1m3 0h1m1 0h3m1 0h2m1 0h2m1 0h1m4 0h5m2 0h1M2 10.5h1m1 0h1m3 0h1m1 0h1m6 0h4m1 0h1m1 0h1m3 0h2M1 11.5h1m1 0h1m1 0h1m1 0h3m2 0h1m1 0h3m1 0h2m1 0h1m1 0h1m2 0h4M2 12.5h2m1 0h2m4 0h1m1 0h2m1 0h5m2 0h1m1 0h1m1 0h1M1 13.5h2m3 0h2m3 0h2m1 0h1m4 0h2m2 0h3m1 0h1M2 14.5h1m1 0h3m2 0h1m1 0h5m1 0h3m1 0h3m1 0h1m3 0h1M2 15.5h2m1 0h1m1 0h2m7 0h1m3 0h2m1 0h2m1 0h2M1 16.5h1m1 0h2m3 0h5m2 0h2m1 0h1m2 0h1m1 0h2m1 0h2M1 17.5h2m1 0h1m1 0h3m2 0h2m1 0h4m1 0h1m1 0h1m1 0h2m1 0h1m2 0h1M1 18.5h3m2 0h1m2 0h3m1 0h1m2 0h2m2 0h1m1 0h1m2 0h5M3 19.5h1m3 0h3m4 0h8m3 0h3m1 0h1M5 20.5h1m4 0h1m1 0h3m3 0h1m2 0h3m3 0h1M1 21.5h5m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m1 0h2m1 0h5m2 0h1M9 22.5h2m3 0h2m5 0h1m3 0h2M1 23.5h7m1 0h5m4 0h4m1 0h1m1 0h3M1 24.5h1m5 0h1m3 0h1m3 0h1m1 0h1m2 0h2m3 0h2m2 0h1M1 25.5h1m1 0h3m1 0h1m1 0h1m3 0h3m1 0h1m2 0h8m1 0h1M1 26.5h1m1 0h3m1 0h1m4 0h1m3 0h1m1 0h3m1 0h1m1 0h1m3 0h1M1 27.5h1m1 0h3m1 0h1m2 0h4m2 0h3m1 0h3m2 0h1m2 0h2M1 28.5h1m5 0h1m4 0h5m1 0h2m2 0h2m4 0h1M1 29.5h7m1 0h1m2 0h1m2 0h2m3 0h1m2 0h1"/></svg>
+
+                            </div>
+
+                            <div class="input-group">
+
+                                <input
+                                    type="text"
+                                    id="pix-codigo"
+                                    class="form-control"
+                                    value="PIX SIMULADO - CARGA TOP - PROJETO INTEGRADOR SENAC"
+                                    readonly
+                                >
+
+                                <button
+                                    type="button"
+                                    id="pix-copiar"
+                                    class="btn btn-outline-secondary"
+                                >
+                                    Copiar código
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="pagamento-boleto" class="mt-4 d-none">
+
+                            <p class="mb-1">
+                                <strong>Pagamento por boleto bancário</strong>
+                            </p>
+
+                            <p class="mb-3">
+                                O boleto é gerado ao finalizar a compra.
+                                <br>
+                                <small>Pagamento simulado, apenas para demonstração do projeto.</small>
+                            </p>
+
+                            <label for="boleto-linha" class="form-label">
+                                Linha digitável (exemplo)
+                            </label>
+
+                            <input
+                                type="text"
+                                id="boleto-linha"
+                                class="form-control"
+                                value="00000.00000 00000.000000 00000.000000 0 00000000000000"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- RESUMO -->
+
+                <div class="col-lg-4">
+
+                    <div class="carrinho-resumo">
+
+                        <h4 class="carrinho-resumo-titulo">
+                            Resumo da compra
+                        </h4>
+
+
+                        <% let subtotal = 0 %>
+
+
+                        <% lista.forEach(item => { %>
+
+                            <% subtotal += Number(item.TotalItem) %>
+
+                            <div class="carrinho-resumo-linha">
+
+                                <span>
+                                    <%= item.Produto %>
+                                    x<%= item.Quantidade %>
+                                </span>
+
+                                <span>
+                                    R$
+                                    <%= Number(item.TotalItem).toFixed(2).replace('.', ',') %>
+                                </span>
+
+                            </div>
+
+                        <% }) %>
+
+
+                        <hr class="carrinho-resumo-divisor">
+
+
+                        <div class="carrinho-resumo-linha">
+
+                            <span>
+                                Subtotal
+                            </span>
+
+                            <span>
+                                R$
+                                <%= subtotal.toFixed(2).replace('.', ',') %>
+                            </span>
+
+                        </div>
+
+
+                        <div class="carrinho-resumo-linha">
+
+                            <span>
+                                Frete
+                            </span>
+
+                            <span class="carrinho-frete-gratis">
+                                Grátis
+                            </span>
+
+                        </div>
+
+
+                        <hr class="carrinho-resumo-divisor">
+
+
+                        <div class="carrinho-resumo-linha carrinho-resumo-total">
+
+                            <span>
+                                Total
+                            </span>
+
+                            <span>
+                                R$
+                                <%= subtotal.toFixed(2).replace('.', ',') %>
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn login-btn w-100 mt-3"
+                        >
+                            Finalizar compra
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <script>
+            // Forma de pagamento: marca a aba clicada e mostra só o que vale para ela
+            (function () {
+                var opcoes = document.querySelectorAll('input[name="pagamento"]');
+                var cartao = document.getElementById('pagamento-cartao');
+                var pix = document.getElementById('pagamento-pix');
+                var boleto = document.getElementById('pagamento-boleto');
+
+                function atualizar() {
+                    opcoes.forEach(function (opcao) {
+                        var aba = opcao.closest('.nav-link');
+                        if (aba) aba.classList.toggle('active', opcao.checked);
+                    });
+
+                    var escolhida = document.querySelector('input[name="pagamento"]:checked');
+                    var valor = escolhida ? escolhida.value : '';
+
+                    cartao.classList.toggle('d-none', valor !== 'Cartão de crédito');
+                    pix.classList.toggle('d-none', valor !== 'Pix');
+                    boleto.classList.toggle('d-none', valor !== 'Boleto bancário');
+                }
+
+                opcoes.forEach(function (opcao) {
+                    opcao.addEventListener('change', atualizar);
+                });
+
+                atualizar();
+
+                // Botão "Copiar código" do Pix
+                var botaoCopiar = document.getElementById('pix-copiar');
+                var campoPix = document.getElementById('pix-codigo');
+
+                botaoCopiar.addEventListener('click', function () {
+                    function avisar() {
+                        botaoCopiar.textContent = 'Copiado!';
+                        setTimeout(function () { botaoCopiar.textContent = 'Copiar código'; }, 2000);
+                    }
+
+                    if (navigator.clipboard && window.isSecureContext) {
+                        navigator.clipboard.writeText(campoPix.value).then(avisar);
+                    } else {
+                        campoPix.select();
+                        document.execCommand('copy');
+                        avisar();
+                    }
+                });
+            })();
+        </script>
+
+
+
+    <% } %>
+
+</div>

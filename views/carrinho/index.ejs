@@ -1,0 +1,108 @@
+<% title = "Carrinho" %>
+
+<div class="container my-4">
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="carrinho-titulo">Meu Carrinho</h1>
+        </div>
+    </div>
+
+    <% if (lista.length===0) { %>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card carrinho-vazio-card text-center p-5">
+                    <img src="https://m.media-amazon.com/images/I/71bR5m4NE7L._AC_SX450_.jpg" role="img" width="140" class="mx-auto mb-3 rounded">
+                    <h5 class="card-title">Seu carrinho está vazio</h5>
+                    <p class="card-text">Explore nossos produtos e adicione itens ao seu carrinho.</p>
+                    <a href="/produto" class="btn login-btn mx-auto mt-2">Ver produtos</a>
+                </div>
+            </div>
+        </div>
+
+        <% } else { %>
+
+            <div class="row g-4">
+
+                <!-- Lista de itens -->
+                <div class="col-12 col-lg-8">
+
+                    <div class="mb-3">
+                        <a href="/produto" class="btn login-btn btn-sm">
+                            + Adicionar mais produtos
+                        </a>
+                    </div>
+
+                    <div class="carrinho-lista">
+
+                        <% lista.forEach(item=> { %>
+
+                            <div class="carrinho-item">
+
+                                <div class="carrinho-item-info">
+                                    <h5 class="carrinho-item-nome"><%= item.Produto %></h5>
+                                    <p class="carrinho-item-cliente mb-1">Cliente: <%= item.Usuario %></p>
+                                    <p class="carrinho-item-qtd mb-0">Quantidade: <%= item.Quantidade %></p>
+                                </div>
+
+                                <div class="carrinho-item-precos text-end">
+                                    <p class="carrinho-item-unitario mb-1">R$ <%= Number(item.preco).toFixed(2) %> / un.</p>
+                                    <p class="carrinho-item-total mb-0">R$ <%= Number(item.TotalItem).toFixed(2) %></p>
+                                </div>
+
+                                <div class="carrinho-item-acoes">
+                                    <a href="/produto/<%= item.ProdutoUID %>" class="btn btn-sm carrinho-btn-ver">Ver</a>
+                                    <a href="/carrinho/<%= item.ID %>/editar" class="btn btn-sm carrinho-btn-editar">Editar</a>
+                                    <form action="/carrinho/<%= item.ID %>/deletar" method="post" class="d-inline"
+                                        onsubmit="return confirm('Remover item do carrinho?')">
+                                        <button type="submit" class="btn btn-sm carrinho-btn-remover">Remover</button>
+                                    </form>
+                                </div>
+
+                            </div>
+
+                            <% }) %>
+
+                    </div>
+
+                </div>
+
+                <!-- Resumo do pedido -->
+                <div class="col-12 col-lg-4">
+
+                    <% let totalCarrinho=0; lista.forEach(item=> {
+                        totalCarrinho += Number(item.TotalItem);
+                        });
+                        %>
+
+                        <div class="carrinho-resumo">
+                            <h5 class="carrinho-resumo-titulo">Resumo do pedido</h5>
+
+                            <div class="carrinho-resumo-linha">
+                                <span>Itens (<%= lista.length %>)</span>
+                                <span>R$ <%= totalCarrinho.toFixed(2) %></span>
+                            </div>
+
+                            <div class="carrinho-resumo-linha">
+                                <span>Frete</span>
+                                <span class="carrinho-frete-gratis">Grátis</span>
+                            </div>
+
+                            <hr class="carrinho-resumo-divisor">
+
+                            <div class="carrinho-resumo-linha carrinho-resumo-total">
+                                <span>Total</span>
+                                <span>R$ <%= totalCarrinho.toFixed(2) %></span>
+                            </div>
+
+                            <a href="/carrinho/finalizar" class="btn login-btn w-100 mt-3 d-block text-center">Finalizar Compra</a>
+                        </div>
+
+                </div>
+
+            </div>
+
+            <% } %>
+
+</div>

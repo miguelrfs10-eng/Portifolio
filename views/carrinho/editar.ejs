@@ -1,0 +1,61 @@
+<% title = "Editar item" %>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-8 col-lg-5">
+
+            <div class="card login-card shadow-sm">
+                <div class="card-body p-4 p-md-5">
+
+                    <h2 class="login-titulo text-center mb-4">EDITAR ITEM</h2>
+
+                    <% if (erro) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <%= erro %>
+                        </div>
+                    <% } %>
+
+                    <h5 class="carrinho-item-nome"><%= item.Produto %></h5>
+
+                    <p class="mb-4">
+                        R$ <%= Number(item.preco).toFixed(2).replace('.', ',') %> / un.
+                        · Estoque: <%= item.Estoque %>
+                    </p>
+
+                    <form action="/carrinho/<%= item.ID %>/editar" method="POST">
+
+                        <div class="mb-3">
+                            <label for="Quantidade" class="form-label">Quantidade</label>
+
+                            <div class="stepper-produto" data-passo="1">
+                                <button type="button" class="stepper-menos" aria-label="Diminuir">−</button>
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="Quantidade"
+                                    name="Quantidade"
+                                    min="1"
+                                    max="<%= item.Estoque %>"
+                                    value="<%= item.Quantidade %>"
+                                    required
+                                >
+
+                                <button type="button" class="stepper-mais" aria-label="Aumentar">+</button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn login-btn w-100 mt-3">Salvar quantidade</button>
+
+                        <p class="signup text-center mb-0 mt-3">
+                            <a href="/carrinho">Cancelar</a>
+                        </p>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

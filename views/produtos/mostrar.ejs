@@ -1,0 +1,175 @@
+<% title = produto.nome %>
+
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb produto-breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/produto?q=<%= produto.categoria %>"><%= produto.categoria %></a></li>
+            <li class="breadcrumb-item active" aria-current="page"><%= produto.nome %></li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container my-5">
+    <div class="row align-items-center justify-content-center">
+
+        <!-- IMAGEM -->
+        <div class="col-lg-7 text-center mb-4 mb-lg-0">
+            <% if (produto.imagem) { %>
+                <div class="produto-galeria">
+                    <div class="produto-miniaturas">
+                        <% for (var m = 0; m < 4; m++) { %>
+                            <img
+                                src="<%= produto.imagem %>"
+                                alt="<%= produto.nome %> - imagem <%= m + 1 %>"
+                                class="produto-miniatura <%= m === 0 ? 'produto-miniatura-ativa' : '' %>"
+                                onclick="document.getElementById('imgPrincipal').src=this.src; document.querySelectorAll('.produto-miniatura').forEach(function(t){t.classList.remove('produto-miniatura-ativa')}); this.classList.add('produto-miniatura-ativa');"
+                            >
+                        <% } %>
+                    </div>
+                    <img id="imgPrincipal" src="<%= produto.imagem %>" alt="<%= produto.nome %>" class="img-fluid produto-bootstrap-img">
+                </div>
+            <% } else { %>
+                <div class="produto-imagem-placeholder">
+                    <i class="bi bi-box-seam"></i>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- INFORMAÇÕES -->
+        <div class="col-lg-5">
+
+            <h2 class="titulo-produto">
+                <%= produto.nome %>
+            </h2>
+
+            <h3 class="preco-produto">
+                R$ <%= Number(produto.preco).toFixed(2).replace('.', ',') %>
+            </h3>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+
+                <form action="/carrinho/comprar" method="POST">
+                    <input type="hidden" name="ProdutoUID" value="<%= produto.uid %>">
+                    <input type="hidden" name="Quantidade" value="1">
+                    <button type="submit" class="btn login-btn">
+                        Comprar
+                    </button>
+                </form>
+
+                <form action="/carrinho/novo" method="POST">
+                    <input type="hidden" name="ProdutoUID" value="<%= produto.uid %>">
+                    <input type="hidden" name="Quantidade" value="1">
+                    <button type="submit" class="btn login-btn">
+                        Adicionar ao carrinho
+                    </button>
+                </form>
+
+                <% if (usuarioLogado && usuarioLogado.tipo === 'admin') { %>
+                    <a href="/produto/<%= produto.uid %>/editar" class="btn login-btn">
+                        Editar produto
+                    </a>
+                <% } %>
+
+            </div>
+
+            <p class="text-light">
+                <%= produto.descricao || 'Produto disponível em nossa loja.' %>
+            </p>
+
+            <p class="text-secondary">
+                Categoria: <%= produto.categoria %>
+            </p>
+
+            <p class="text-secondary">
+                Marca: <%= produto.marca || 'Não informada' %>
+            </p>
+
+            <div class="mt-3">
+                <button class="btn login-btn" data-bs-toggle="collapse" data-bs-target="#detalhesProduto">
+                    Ver mais
+                </button>
+            </div>
+
+            <div class="collapse mt-3" id="detalhesProduto">
+                <div class="card produto-detalhes-card">
+                    <div class="card-body">
+                        <ul class="mb-0">
+                            <li>Categoria: <%= produto.categoria %></li>
+                            <li>Marca: <%= produto.marca || 'Não informada' %></li>
+                            <li>Quantidade disponível: <%= produto.quantidade %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- OUTROS PRODUTOS -->
+<% if (outros && outros.length > 0) { %>
+
+    <div class="container my-4 px-md-5">
+
+        <h4 class="titulo-produto mb-3">Mais produtos</h4>
+
+        <div id="carrosselProdutos" class="carousel slide" data-bs-wrap="true">
+
+            <div class="carousel-inner">
+
+                <%
+                    var porSlide = 4;
+                    var totalSlides = Math.ceil(outros.length / porSlide);
+                %>
+
+                <% for (var i = 0; i < totalSlides; i++) { %>
+
+                    <div class="carousel-item <%= i === 0 ? 'active' : '' %>" data-bs-interval="false">
+                        <div class="row g-3">
+
+                            <% outros.slice(i * porSlide, i * porSlide + porSlide).forEach(function(p) { %>
+
+                                <div class="col-6 col-md-3">
+                                    <div class="card-produto h-100">
+                                        <div class="text-center mb-2">
+                                            <img
+                                                src="<%= p.imagem || 'https://via.placeholder.com/300x300?text=Sem+imagem' %>"
+                                                alt="<%= p.nome %>"
+                                            >
+                                        </div>
+                                        <p class="card-nome"><%= p.nome %></p>
+                                        <p class="card-preco">
+                                            R$ <%= Number(p.preco).toFixed(2).replace('.', ',') %>
+                                        </p>
+                                        <a href="/produto/<%= p.uid %>" class="btn login-btn w-100 mt-2">
+                                            Comprar
+                                        </a>
+                                    </div>
+                                </div>
+
+                            <% }) %>
+
+                        </div>
+                    </div>
+
+                <% } %>
+
+            </div>
+
+            <% if (totalSlides > 1) { %>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carrosselProdutos" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carrosselProdutos" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+
+            <% } %>
+
+        </div>
+
+    </div>
+
+<% } %>

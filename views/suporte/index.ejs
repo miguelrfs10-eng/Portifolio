@@ -1,0 +1,292 @@
+<% title = "Suporte / Contato" %>
+
+<div class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-lg-9">
+
+            <div class="mb-4">
+
+                <h1 class="carrinho-titulo">
+                    Suporte / Contato
+                </h1>
+
+                <p class="text-secondary">
+                    Precisa de ajuda? Converse com nosso assistente ou entre em contato conosco.
+                </p>
+
+            </div>
+
+            <div class="carrinho-resumo">
+
+                <div class="d-flex align-items-center gap-3 mb-4">
+
+                    <div class="perfil-avatar">
+                        <i class="bi bi-headset"></i>
+                    </div>
+
+                    <div>
+
+                        <h4 class="mb-1">
+                            Suporte CargaTop
+                        </h4>
+
+                        <small class="text-secondary">
+                            Assistente virtual
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="chat-container">
+
+                    <div class="chat-header">
+                        <h5>
+                            Chat de atendimento
+                        </h5>
+
+                        <small>
+                            Tire suas dúvidas sobre nossos produtos e serviços.
+                        </small>
+                    </div>
+
+                    <div
+                        class="chat-window"
+                        id="chat-window"
+                    ></div>
+
+                    <form
+                        class="chat-form"
+                        id="chat-form"
+                    >
+
+                        <input
+                            type="text"
+                            id="user-input"
+                            placeholder="Digite sua mensagem..."
+                            autocomplete="off"
+                        >
+
+                        <button type="submit">
+                            Enviar
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <hr class="my-4">
+
+                <div class="row g-4">
+
+                    <div class="col-12 col-md-4">
+
+                        <div class="d-flex align-items-start gap-3">
+
+                            <i class="bi bi-envelope suporte-icone"></i>
+
+                            <div>
+
+                                <h6 class="mb-1">
+                                    E-mail
+                                </h6>
+
+                                <span class="text-secondary">
+                                    contato@topcarga.com.br
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-md-4">
+
+                        <div class="d-flex align-items-start gap-3">
+
+                            <i class="bi bi-whatsapp suporte-icone"></i>
+
+                            <div>
+
+                                <h6 class="mb-1">
+                                    WhatsApp
+                                </h6>
+
+                                <span class="text-secondary">
+                                    (11) 99999-9999
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-md-4">
+
+                        <div class="d-flex align-items-start gap-3">
+
+                            <i class="bi bi-clock suporte-icone"></i>
+
+                            <div>
+
+                                <h6 class="mb-1">
+                                    Atendimento
+                                </h6>
+
+                                <span class="text-secondary">
+                                    08h às 18h
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const chatForm = document.getElementById("chat-form");
+    const chatWindow = document.getElementById("chat-window");
+    const userInput = document.getElementById("user-input");
+
+    const responses = {
+
+        "olá":
+            "Olá! Sou o assistente CargaTop. Como posso ajudar você a encontrar o carregador ideal para o seu aparelho hoje?",
+
+        "oi":
+            "Oi! Tudo bem? Fale sobre o tipo de carregador ou acessório que você procura.",
+
+        "serviços":
+            "A CargaTop é especializada em venda de carregadores de alta qualidade e acessórios compatíveis.",
+
+        "carregador":
+            "Temos carregadores para diversos modelos: USB-C, Lightning, Micro USB e modelos por indução.",
+
+        "turbo":
+            "Sim, temos carregadores turbo e de carregamento rápido para diferentes dispositivos.",
+
+        "cabo":
+            "Temos cabos de diversos tipos e tamanhos. Você precisa de USB-C, Lightning ou Micro USB?",
+
+        "quem são vocês":
+            "Somos a Top Carga, uma loja especializada em carregadores e acessórios.",
+
+        "loja":
+            "Nossa loja atende de segunda a sexta, das 8h às 18h.",
+
+        "endereço":
+            "Nossa loja está localizada no Senac SP. O atendimento funciona de segunda a sexta, das 8h às 18h.",
+
+        "garantia":
+            "Sim. Os produtos possuem garantia de acordo com as condições de cada item.",
+
+        "prazo":
+            "Para compras online, o envio é realizado em até 24 horas úteis.",
+
+        "contato":
+            "Você pode entrar em contato pelo e-mail contato@topcarga.com.br ou pelo WhatsApp.",
+
+        "whatsapp":
+            "Nosso WhatsApp é (11) 99999-9999.",
+
+        "obrigado":
+            "De nada! Estou aqui se precisar de mais alguma coisa.",
+
+        "tchau":
+            "Até mais! Agradecemos o contato com a CargaTop."
+    };
+
+
+    chatForm.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        const userMessage = userInput.value.trim();
+
+        if (userMessage) {
+
+            addMessage(userMessage, "user-message");
+
+            respondToUser(userMessage);
+
+            userInput.value = "";
+
+        }
+
+    });
+
+
+    function addMessage(text, className) {
+
+        const messageDiv = document.createElement("div");
+
+        messageDiv.textContent = text;
+
+        messageDiv.classList.add(
+            "message",
+            className
+        );
+
+        chatWindow.appendChild(messageDiv);
+
+        chatWindow.scrollTop =
+            chatWindow.scrollHeight;
+
+    }
+
+
+    function respondToUser(userMessage) {
+
+        const lowerCaseMessage =
+            userMessage.toLowerCase();
+
+        let botResponse =
+            "Desculpe, não consegui encontrar uma resposta direta. Tente perguntar sobre carregadores, serviços, garantia, prazo, endereço ou contato.";
+
+        for (const keyword in responses) {
+
+            if (lowerCaseMessage.includes(keyword)) {
+
+                botResponse =
+                    responses[keyword];
+
+                break;
+
+            }
+
+        }
+
+        setTimeout(() => {
+
+            addMessage(
+                botResponse,
+                "bot-message"
+            );
+
+        }, 500);
+
+    }
+
+});
+
+</script>

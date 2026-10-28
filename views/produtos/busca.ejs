@@ -1,0 +1,57 @@
+<% title = "Busca: " + termo %>
+
+<div class="container my-5">
+
+    <h1 class="mb-2">Resultados para “<%= termo %>”</h1>
+
+    <p class="mb-4">
+        <%= produtos.length %>
+        <%= produtos.length === 1 ? 'produto encontrado' : 'produtos encontrados' %>
+    </p>
+
+    <% if (produtos.length === 0) { %>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card carrinho-vazio-card text-center p-5">
+                    <h5 class="card-title">Nenhum produto encontrado</h5>
+                    <p class="card-text">Tente buscar por outro nome, categoria ou marca.</p>
+                    <a href="/produto" class="btn login-btn mx-auto mt-2">Ver todos os produtos</a>
+                </div>
+            </div>
+        </div>
+
+    <% } else { %>
+
+        <div class="carrinho-lista">
+
+            <% produtos.forEach(produto => { %>
+
+                <div class="carrinho-item">
+
+                    <div class="carrinho-item-info">
+                        <h5 class="carrinho-item-nome"><%= produto.nome %></h5>
+                        <p class="mb-0">
+                            <%= produto.categoria %><% if (produto.marca) { %> · <%= produto.marca %><% } %>
+                        </p>
+                    </div>
+
+                    <div class="carrinho-item-precos text-end">
+                        <div class="carrinho-item-total">
+                            R$ <%= Number(produto.preco).toFixed(2).replace('.', ',') %>
+                        </div>
+                    </div>
+
+                    <div class="carrinho-item-acoes">
+                        <a href="/produto/<%= produto.uid %>" class="btn btn-sm carrinho-btn-ver">Ver produto</a>
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    <% } %>
+
+</div>

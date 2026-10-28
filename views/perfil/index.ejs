@@ -1,0 +1,65 @@
+<% title = "Minha Conta" %>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+
+            <div class="mb-4">
+                <h1 class="carrinho-titulo">Minha conta</h1>
+                <p class="text-secondary">
+                    Consulte seus dados pessoais.
+                </p>
+            </div>
+
+            <div class="carrinho-resumo">
+
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <div class="perfil-avatar">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-1"><%= conta.nome %></h4>
+                        <small class="text-secondary">Dados do usuário</small>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row g-4 mt-1">
+
+                    <div class="col-12 col-md-6">
+                        <label class="form-label">Nome completo</label>
+                        <input type="text" class="form-control perfil-input" value="<%= conta.nome %>" readonly>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label class="form-label">E-mail</label>
+                        <input type="email" class="form-control perfil-input" value="<%= conta.email %>" readonly>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label class="form-label">Telefone</label>
+                        <input type="text" class="form-control perfil-input" value="<%= conta.telefone %>" readonly>
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column flex-md-row gap-2 mt-4">
+                    <a href="/usuarios/pedidos" class="btn carrinho-btn-ver pedido-btn">
+                        <i class="bi bi-box-seam"></i>
+                        Meus pedidos
+                    </a>
+
+                    <% if (usuarioLogado && usuarioLogado.tipo === 'cliente') { %>
+                        <a href="/usuarios/endereco" class="btn carrinho-btn-ver pedido-btn">
+                            <i class="bi bi-geo-alt"></i>
+                            Meu endereço
+                        </a>
+                    <% } %>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

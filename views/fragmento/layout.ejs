@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top bg-dark navbar-dark">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="/">
+                    <img src="/imagens/logo grupo2.png" alt="Carga Top" height="40">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/produto">Produtos</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Categorias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/produto?q=carregador">Carregadores</a></li>
+                                <li><a class="dropdown-item" href="/produto?q=cabo">Cabos</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- LOCALIZAÇÃO -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/usuarios/localizacao">Localização</a>
+                        </li>
+
+                    </ul>
+
+                    <form class="d-flex flex-grow-1 mx-lg-3" action="/produto" method="get" role="search">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Buscar produtos...">
+                        <button class="btn login-btn" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+
+                    <ul class="navbar-nav me-3">
+
+                        <% if (usuarioLogado) { %>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    Bem-vindo, <%= usuarioLogado.nome %>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="/usuarios/perfil">Minha conta</a></li>
+                                    <li><a class="dropdown-item" href="/usuarios/pedidos">Meus pedidos</a></li>
+
+                                    <% if (usuarioLogado.tipo==='admin' ) { %>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <h6 class="dropdown-header">Administração</h6>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/produto/novo">Novo produto</a></li>
+                                        <li><a class="dropdown-item" href="/funcionarios">Funcionários</a></li>
+                                        <li><a class="dropdown-item" href="/funcionarios/novo">Novo funcionário</a></li>
+                                        <li><a class="dropdown-item" href="/usuarios">Usuários</a></li>
+                                    <% } %>
+
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="/logar/logout">Sair</a></li>
+                                </ul>
+                            </li>
+
+                            <% } else { %>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/logar/cadastro">Cadastre-se</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/logar/login">Entrar</a>
+                                </li>
+
+                                <% } %>
+
+                    </ul>
+
+                    <a href="/carrinho" class="btn login-btn">
+                        <i class="bi bi-cart3"></i> Carrinho
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <%- body %>
+
+        <footer class="footer-custom py-4">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 footer-col">
+                        <h5>Menu</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/produto">Produtos</a></li>
+                            <li><a href="/carrinho">Carrinho</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3 footer-col">
+                        <h5>Ajuda</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="/usuarios/suporte">Suporte</a></li>
+                            <li><a href="/usuarios/localizacao">Localização da loja</a></li>
+                            <li><a href="/politica">Política de Privacidade</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3 footer-col">
+                        <h5>Contato</h5>
+                        <ul class="list-unstyled">
+                            <li>contato@cargatop.com.br</li>
+                            <li>(11) 0000-0000</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3 footer-col">
+                        <h5>Redes Sociais</h5>
+                        <div class="footer-social">
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-facebook"></i></a>
+                            <a href="#"><i class="bi bi-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <a href="/usuarios/suporte" class="suporte-button">
+            <i class="bi bi-headset"></i>
+        </a>
+
+        <script src="/js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
